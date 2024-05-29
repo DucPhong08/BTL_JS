@@ -1,0 +1,32 @@
+{
+  "name": "be-truyen",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "nodemon --inspect src/index.js",
+    "watch": "sass --watch src/resources/scss/app.scss:src/public/css/app.css",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "truyen",
+    "kho-truyen"
+  ],
+  "author": "PGtruyen",
+  "license": "ISC",
+  "devDependencies": {
+    "morgan": "^1.10.0",
+    "nodemon": "^3.1.0",
+    "sass": "^1.77.2"
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "express-handlebars": "^7.1.2",
+    "method-override": "^3.0.0",
+    "mongoose": "^8.4.0",
+    "mongoose-delete": "^1.0.2",
+    "mongoose-slug-generator": "^1.0.4",
+    "mongoose-slug-updater": "^3.3.0",
+    "slugify": "^1.6.6"
+  }
+}

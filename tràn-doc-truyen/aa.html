@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../fontawesome-free-6.5.2-web/fontawesome-free-6.5.2-web/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="../fontawesome-free-6.5.2-web/fontawesome-free-6.5.2-web/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <title>Truyện ...... Chương...</title>
+    <link rel="stylesheet" href="aa.css">
+    <link rel="stylesheet" href="../chi-tiet-truyen/base.css">
+    <link rel="stylesheet" href="../css/css.css">
+</head>
+<body>
+    <header>
+        <div class="heading-bar">
+            <a href="../giaodien/a.html"><h1>Kho<span style="color: #F18121;">truyện</span></h1></a>
+            <form action="#" class="search-box">
+                <input type="text" placeholder="Nhập tên truyện cần tìm" required>
+                <button type="submit" class="search-icon" ><i class="fa-solid fa-magnifying-glass zoom"></i></button>
+            </form>
+            
+            <span class="heading-bar--light">
+                <i class="fa-regular fa-lightbulb zoom"></i>
+                
+            </span>
+            <span class="heading-bar--icon">
+                <button ><i class="fa-solid fa-bell zoom"></i></button>
+                <div class="heading__notify" id="heading__notify-hien">
+                        <header class="heading__notify-header">
+                            <h3>Thông báo mới nhận</h3>
+                        </header>
+                        <ul class="heading__notify-list">
+                            <li class="heading__notify-item">
+                                <a href="" class="heading__notify-link">
+                                    <p>Hệ Thống</p>
+                                    <div class="heading__notify-info">
+                                        <span class="heading__notify-name">Truyện ......</span>
+                                        <span class="heading__notify-descriotion">Mô tả Truyện mới ra chương</span>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="heading__notify-item">
+                                <a href="" class="heading__notify-link">
+                                    <p>Hệ Thống</p>
+                                    <div class="heading__notify-info">
+                                        <span class="heading__notify-name">Truyện ......</span>
+                                        <span class="heading__notify-descriotion">Mô tả Truyện mới ra chương</span>
+                                    </div>
+                                </a>
+                            </li><li class="heading__notify-item">
+                                <a href="" class="heading__notify-link">
+                                    <p>Hệ Thống</p>
+                                    <div class="heading__notify-info">
+                                        <span class="heading__notify-name">Truyện ......</span>
+                                        <span class="heading__notify-descriotion">Mô tả Truyện mới ra chương</span>
+                                    </div>
+                                </a>
+                            </li><li class="heading__notify-item">
+                                <a href="" class="heading__notify-link">
+                                    <p>Hệ Thống</p>
+                                    <div class="heading__notify-info">
+                                        <span class="heading__notify-name">Truyện ......</span>
+                                        <span class="heading__notify-descriotion">Mô tả Truyện mới ra chương</span>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                </div>
+            </span>
+            <ul>
+                <li>
+                    <div class="acoount">
+                        <a href="#" class="abc acoont_sau">Đăng nhập</a>
+                        <a href="#">Đăng ký</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <menu>
+            <ul class="menu-ul">
+                <li class="menu-li"><a href="#">Trang chủ</a></li>
+                <li class="menu-li library dropdown">
+                    <a href="#">Kho Truyện</a>
+                </li>
+                <li class="menu-li dropdown">
+                    <a href="#"  >Thể loại </a>
+                    <div class="droplist droplist-fluid-container">
+                            <a href="#">Tiên Hiệp</a>
+                            <a href="#">Huyền Huyễn</a>
+                            <a href="#">Khoa Huyễn</a>
+                            <a href="#">Võng Du</a>
+                            <a href="#">Đô Thị</a>
+                            <a href="#">Đồng Nhân</a>
+                            <a href="#">Hệ Thống</a>
+                            <a href="#">Light Novel</a>
+                    </div>
+                </li>
+                <li class="menu-li dropdown">
+                    <a href="#">Xếp Hạng </a>
+                    <div class="droplist droplist-normal">
+                        <a href="#">Xếp Hạng Lượt Đọc</a>
+                        <a href="#">Xếp Hạng Đề Cử</a>
+                        <a href="#">Xếp Hạng Yêu Thích</a>
+                        <a href="#">Xếp Hạng Bình Luận</a>
+                    </div>
+                </li>
+            </ul>
+        </menu>
+    </header>
+
+    <div class="content">
+        <div class="content_name">
+            <a href="../chi-tiet-truyen/nd.html" id="booknameholder" style="font-size: 24px;font-weight: 700;color: gray;display: block;text-align: center;"> Trùng sinh mèo đen, bọn hắn đều gọi ta quỷ dị chi chủ </a>
+            <center id="bookchapnameholder" style="color: gray">
+                Thứ 1 chương Muốn ta mạng mèo
+            </center>
+            <div class="content-next" style="background: #8e8d8d;font-size: 16px;padding: 6px 0;font-weight: 500">
+                <div class="content-next-chap" style="text-align: center;">
+                    <a onclick="blinkloadnextchap(true)" id="navprevtop" href="#"><i class="fas fa-chevron-left"></i> Chương trước</a>
+                    <a id="navcentertop" href="#"> Mục lục </a>
+                    <a onclick="blinkloadnextchap()" id="navnexttop" href="#" >Chương sau <i class="fas fa-chevron-right"></i></a>
+                </div>
+            </div>
+            <div class="content_doc" id="content-container" style="min-height: 300px;padding: 0;">
+                <div class="contentbox" style="font-family:arial;font-size:18px;">
+                    <span style="color:gray;font-size:12px;">@Bạn đang đọc bản lưu trong hệ thống</span>
+                    <p>
+                        <div oncopy="return false" oncut="return false" data-x-bind="ChapterContent" class="break-words"> "Ngay tại lâm thời ghép đôi."<br><br>"Xin sau!"<br><br>"Ông!"<br><br>Nương theo lấy Thor lời nói rơi xuống, máy móc thanh âm lại lần nữa vang lên, đồng thời một đạo gợn sóng trong nháy mắt lan tràn mà ra.<br><br>Trong nháy mắt quét sạch toàn bộ thần quốc chỗ tồn tại.<br><br>Giờ khắc này, cùng trước đó hắn vừa mới bước vào dị vực thế giới cơ hồ là giống nhau như đúc, duy nhất bất đồng, đó chính là hắn bước vào dị vực thế giới thời điểm, hệ thống cũng không có dành cho thanh âm nhắc nhở.<br><br>[ mỗi ngày tình báo đã đổi mới ]<br><br>[ 1: Bởi vì ngươi tận lực, ngươi vượt lên trước French Pu'er bước vào Tử Vong Chi Thần Thanatos lãnh địa, xem như thượng vị thần, dù là hắn sớm đã tại viễn cổ thần thoại thời đại liền đã vẫn lạc, nhưng hắn thần quốc hình thành thần khư vẫn như cũ đứng sừng sững ở cái này một mảnh vĩ độ phía trên. ]<br><br>[ 2: Đến từ Thanatos thần lực ngay tại xen lẫn, muốn thu hoạch được nó truyền thừa, nhất định phải cảm ngộ Tử Vong Pháp Tắc vết tích, lại Tử Vong Pháp Tắc độ phù hợp muốn đến tầng lớp cực kỳ cao độ. ]<br><br>[ 3: Đến từ Thanatos thần quốc thần khư lực lượng, có thể bị cấu kết, đủ khả năng thu hoạch được thần khư truyền thừa, ngươi có thể cấu kết thần quốc lực lượng giáng lâm ]<br><br>[ 4: Thần quốc chỗ sâu, có Tử Vong Pháp Tắc nồng nặc nhất chỗ tồn tại, tiến về đến chỗ sâu, có thể thêm khoái cảm ngộ Tử Vong Pháp Tắc lực lượng, bất quá mở ra hạch tâm chỗ tồn tại, cần Tử Vong Pháp Tắc lực lượng ]<br><br>[ 5; trong Thần Khư, có đến từ thượng vị thần Thanatos thần khí, nếu là có thể nhóm lửa thần hỏa ngưng tụ thần cách, có thể lấy Tử Vong Pháp Tắc lực lượng dẫn ra mà ra ]<br><br>[ 6: Trong truyền thuyết tử thần Thanatos là bị đến từ ở trong lòng đất nhân loại đánh g·iết, lấy sinh mệnh hạt giống lực lượng cấu kết, ngươi cũng có thể phát giác được một chút kinh hỉ ngoài ý muốn. ]<br><br>Từng hàng văn tự hiện ra, lần này hết thảy cũng đồng dạng hiện ra mười đầu, mà lại cùng Thor phỏng đoán một dạng, nương theo lấy ghép đôi hoàn thành giờ phút này bàn tay vàng biểu hiển mỗi ngày tình báo toàn bộ đều là liên quan đến tại thần quốc bên trong.<br><br>Cái gọi là ghép đôi không thể nghi ngờ, chính là trực tiếp ghép đôi nơi đây thời không.<br><br>Lúc trước hắn bước vào dị vực thế giới bên trong, hệ thống cũng hẳn là tiến hành một lần ghép đôi.<br><br>Chỉ là bởi vì dị vực thế giới cùng thần quốc còn bất đồng, đồng thời không có đề kỳ.<br><br>Thần quốc xen vào hư ảo cùng chân thực, mới có bất đồng cải biến.<br><br>Đương nhiên giờ phút này chút đã cũng không trọng yếu rồi, trọng yếu là mỗi ngày tình báo bây giờ xuất hiện mười đầu mỗi ngày tình báo.<br><br>Giờ khắc này hắn rốt cục hiểu rõ chỗ này thần quốc đại thể tình huống.<br><br>Cái này lại là một vị thượng vị thần thần quốc.<br><br>Dù là Thor không rõ lắm thượng vị thần là khái niệm gì.<br><br>Nhưng hắn là biết rõ trước đó thần Anubis vẻn vẹn chỉ là một cái hạ vị thần.<br><br>Như vậy không có gì bất ngờ xảy ra cần phải còn có một cái trung vị thần đẳng cấp.<br><br>Dù là thượng vị thần phía trên còn có tồn tại, có thể lên vị thần đẳng cấp tuyệt đối không thấp.<br><br>Giờ khắc này, cho dù là nội tâm Thor cũng không khỏi có chút kích động.<br><br>Thượng vị thần, một vị thượng vị thần truyền thừa, đối với hắn mà nói tác dụng chính là cực kỳ to lớn.<br><br>Cho dù là hắn giờ phút này có lẽ có lấy tự tin nhường tự thân đột phá thần vực, có thể thần vực phía trên lại làm như thế nào đi, cho dù là hắn hiện tại đều không có chút nào suy nghĩ.<br><br>Nhưng nếu là có thần linh truyền thừa, không nói đồng dạng thượng vị thần.<br><br>Có thể ngưng tụ thần cách không phải là vấn đề quá lớn.<br><br>Hai mắt từng cái quét qua mỗi ngày hệ thống tình báo.<br><br>Sau đó Thor có chút hít sâu một hơi.<br><br>Sau đó không chần chờ nữa.<br><br>"Ông!"<br><br>Một đạo gợn sóng lan tràn mà lên, Thor trong mi tâm Tử Vong Pháp Tắc ấn ký bắt đầu xen lẫn mà ra, đồng thời một luồng khí tức t·ử v·ong bắt đầu tràn ngập hướng về phía toàn bộ bốn phía.<br><br>Tử Vong Pháp Tắc lực lượng xen lẫn.<br><br>Engel bá tước cơ hồ trong nháy mắt đã nhận ra dị dạng.<br><br>Thần sắc có chút ngoài ý muốn, bất quá động tác lại là cực kỳ cấp tốc.<br><br>"Cà!"<br><br>Thân ảnh biến mất, trong chốc lát xuất hiện ở Thor trước người.<br><br>"Thor thế nào?"<br><br>Engel bá tước nhìn bốn phía, sau đó dừng lại ở trên thân thể Thor, mang theo giọng nghi ngờ vang lên.<br><br><div id="middle-content-one"></div><br><br>"Phụ thân đại nhân, ngài nhìn?"<br><br>Thor không có trả lời Engel bá tước lời nói, chỉ là ra hiệu lấy đối phương nhìn về phía trước mắt thần quốc.<br><br>"Thế nào?"<br><br>Engel bá tước có chút mờ mịt.<br><br>Theo bản năng nhìn sang.<br><br>Có thể cái này xem xét, con ngươi của hắn không khỏi kịch liệt co vào.<br><br>Nguyên bản thần quốc bên trong từng đạo hư ảo cảnh sắc bắt đầu phá toái.<br><br>Đồng thời khí tức t·ử v·ong nồng nặc bắt đầu tràn ngập hướng về phía toàn bộ bốn phía.<br><br>Nương theo lấy khí tức t·ử v·ong xen lẫn, toàn bộ chung quanh hết thảy đều cấp tốc phát sinh cải biến.<br><br>Quang mang tiêu tán.<br><br>Trên trời cao ánh nắng, ánh trăng, tinh quang đều đã không gặp.<br><br>Đen kịt tràn ngập toàn bộ thế giới.<br><br>Toàn bộ thần quốc, không, phải nói toàn bộ thiên địa phảng phất trong nháy mắt bị vĩnh hằng màn đêm bao phủ, nguyên bản huy hoàng không gian bên trong giờ phút này bắt đầu tràn ngập lấy một loại lạnh lẽo mà khí tức cổ xưa, phảng phất thời gian ở chỗ này đình trệ, chỉ có t·ử v·ong cùng yên tĩnh đang đan xen.<br><br>Đen kịt bên trong, u lam lân hỏa ở phía xa lấp lóe, mặt đất hư ảo tràng cảnh, giờ phút này lại dần dần bắt đầu bị đen kịt minh thổ bao trùm, phía trên bao trùm lấy một tầng thật mỏng xám sương mù màu trắng, như là vong hồn thở dài, trong bóng đêm chầm chậm lưu động.<br><br>Hư ảo bầu trời cũng biến thành đen kịt, không có ánh nắng, không có đám mây, chỉ có vô tận vẻ lo lắng cùng nặng nề cảm giác áp bách. Tại dưới vùng trời này hết thảy sinh mệnh đều lộ ra nhỏ bé như vậy cùng yếu ớt, phảng phất bất cứ lúc nào cũng sẽ bị cái này bóng tối vô tận thôn phệ.<br><br>"Soạt!"<br><br>Hư ảo tiếng nước chảy mà lên, theo bản năng ngẩng đầu, Engel bá tước liền phát hiện trên trời cao không biết khi nào một đầu to lớn mà đen kịt dòng sông xuyên qua mà qua.<br><br>Đây là chảy xuôi tại Minh Giới chỗ sâu nhất chỗ sâu con sông thần bí, tựa như một đầu u ám dây lụa, tại trong bóng tối vô tận lẳng lặng chảy xuôi.<br><br>Giờ phút này vừa xuất hiện, toàn bộ thế giới đen kịt, cùng khí tức t·ử v·ong càng phát nồng nặc bắt đầu.<br><br>Đồng thời, toàn bộ chung quanh cái kia từng đạo hư ảnh bắt đầu có xanh lá sẫm quang mang tại trong hốc mắt bay lên, khí tức t·ử v·ong bắt đầu không ngừng đan xen tại thiên địa.<br><br>"Soạt!"<br><br>Rõ ràng tiếng nước chảy lại lần nữa mà lên, trên trời cao, lại lần nữa có một đầu đen kịt dòng sông xuyên qua mà qua.<br><br>Trong truyền thuyết Minh Giới có được ba đầu Minh Giới Chi Hà.<br><br>Ngày xưa thần Anubis thần khư hiện ra thời điểm, liền có một đầu Minh Giới Chi Hà xuyên qua mà qua, cũng thật bởi vì cái kia một đầu Minh Giới Chi Hà, nhường thần khư khí tức t·ử v·ong đạt tới mức cực hạn.<br><br>Có thể giờ khắc này, toàn bộ thần quốc bên trong vậy mà xuất hiện hai đầu Minh Giới Chi Hà.<br><br>Cái kia từng sợi khí tức t·ử v·ong cơ hồ đã muốn nồng đậm đến tan không ra.<br><br>Đen kịt thế giới bên trong, vô số Tử Vong Pháp Tắc xen lẫn, giờ khắc này tất cả mọi người cảm thấy tự thân cùng Tử Vong Pháp Tắc bên trong.<br><br>"Rầm!"<br><br>"Thor!"<br><br>Engel bá tước cũng không khỏi theo bản năng nuốt nuốt nước miếng một cái, ánh mắt không khỏi nhìn về phía con của mình.<br><br>"Yên tâm đi, phụ thân đại nhân, vị kia tử thần đã vẫn lạc, cái này vẻn vẹn chỉ là lực lượng pháp tắc xen lẫn, không có lấy vấn đề quá lớn, chúng ta thậm chí mượn nhờ lần này pháp tắc xen lẫn tận khả năng cảm ngộ Tử Vong Pháp Tắc lực lượng."<br><br>Thor nhẹ giọng mở miệng, hướng về Engel bá tước giải thích một tiếng.<br><br>"Minh bạch rồi!"<br><br>Engel bá tước hơi hơi ngẩn ra, bất quá rất nhanh cũng hiểu rõ ra, không khỏi có chút gật đầu.<br><br>"Phụ thân đại nhân, ta đi trước, nếu là muốn cảm ngộ Tử Vong Pháp Tắc lực lượng, chỉ cần bước vào phía trước là có thể."<br><br>Cùng Engel bá tước giải thích một câu sau đó, Thor lập tức mở miệng nói một tiếng.<br><br>Sau khi nói xong, ánh mắt của hắn lập tức nhìn về phía Ryn, Anna, Marshall.<br><br>"Ryn, Anna, Marshall, các ngươi cũng đi theo ta cùng một chỗ tiến vào đi!"<br><br>"Tử Vong Pháp Tắc lực lượng coi như không cách nào cảm ngộ, hẳn là cũng đủ để tăng cường các ngươi đối với lực lượng pháp tắc sử dụng."<br><br>Lời nói lên tiếng, đồng thời làm lấy an bài.<br><br><div id="middle-content-two"></div><br><br>"Đúng!"<br><br>Anna, Ryn, Marshall lập tức gật đầu trực tiếp nhận lời xuống dưới.<br><br>Mà sau khi phân phó.<br><br>Sau một khắc, Thor không chần chờ nữa, trực tiếp bước về phía phía trước.<br><br>Không nói Tử Vong Pháp Tắc lực lượng vốn là hắn hiện tại vô cùng cần thiết.<br><br>Liền xem như mặt khác lực lượng pháp tắc, hắn giờ phút này cũng sẽ không chần chờ.<br><br>Dù sao đây chính là một vị thượng vị thần truyền thừa, cùng phương đông thế giới quan cũng không đồng dạng.<br><br>Tại phương đông thế giới quan bên trong, thu được truyền thừa, cũng rất khó đến đến truyền thừa người trình độ, có thể tại phương tây, thu được thượng vị thần truyền thừa, căn bản là có khả năng rất lớn đồng dạng trở thành thượng vị thần.<br><br>Đây chính là một vị thượng vị thần, đừng nói Thor còn không phải thần vực rồi, liền xem như thần vực, thậm chí đã đốt lên thần hỏa, ngưng tụ thần cách tồn tại, chỉ sợ đều sẽ chạy theo như vịt.<br><br>"Soạt!"<br><br>Bước chân di chuyển, sau một khắc chung quanh thời không trong nháy mắt sinh ra chấn động ba động.<br><br>Cũng như lúc trước bước vào trong Thần Khư một dạng.<br><br>Mà lại một bước vào, tràng cảnh tựa hồ cũng cùng trước đó cũng không có khác nhau quá nhiều.<br><br>Bầu trời đen nhánh, đen kịt đại địa, không rõ cùng khí tức t·ử v·ong không ngừng xen lẫn.<br><br>Dậm trên dưới chân minh thổ, nơi xa, từng đạo hai mắt mang theo lục quang khô lâu hướng về hắn bao vây, đến từ Tử Vong Pháp Tắc khí tức để bọn hắn tựa hồ khôi phục thực lực.<br><br>Giờ phút này nhìn về phía Thor, tựa hồ thấy được 1 khối nhất là mỹ vị huyết nhục.<br><br>"Oanh!"<br><br>"Ầm ầm!"<br><br>Rung động dữ dội lan tràn, đại lượng khô lâu quái vật bắt đầu hội tụ.<br><br>Thor không tâm pháp thì ấn ký nhảy lên, lôi thuộc tính lực lượng pháp tắc cơ hồ theo bản năng muốn bị hắn điều động đi ra.<br><br>Bất quá ở nửa đường bên trong, hắn đột nhiên kịp phản ứng, ngạnh sinh sinh ngừng lại.<br><br>Tử Vong Pháp Tắc lực lượng nhảy lên, t·ử v·ong lực lượng xen lẫn.<br><br>Tay phải nhẹ nhàng nắm chặt, vô số Tử Vong chi lực hội tụ, một thanh đen kịt vô cùng trường thương xuất hiện.<br><br>"Oanh!"<br><br>Mặt đất trong nháy mắt sụp đổ, sau một khắc, Thor cả người chính là hướng thẳng đến cái kia một đám khô lâu vọt tới.<br><br>Tốc độ của hắn cực kỳ cấp tốc.<br><br>Trong chớp mắt liền vượt qua khoảng cách.<br><br>Đối mặt với đại lượng khô lâu, hắn giờ phút này cũng không có khai thác phòng thủ, mà là vận dụng toàn bộ thực lực trực tiếp lao xuống mà bên trên.<br><br>Oanh.<br><br>Oanh.<br><br>Ầm ầm!<br><br>Từng đạo tiếng oanh minh mà lên, dù là Thor vẻn vẹn vận dụng Tử Vong Pháp Tắc lực lượng, những vong linh này lực lượng cũng căn bản là không có cách cùng hắn chống lại, vẻn vẹn trong nháy mắt liền có mấy chục cỗ xương cốt b·ị đ·ánh nát.<br><br>Hồn hỏa ảm đạm.<br><br>Có thể gánh vác không nổi số lượng còn đang tăng thêm, mà lại bị hắn đánh nát vong linh, tại một lát thời gian sau đó, khí tức t·ử v·ong không ngừng đan xen, từng cái lại lại lần nữa thức tỉnh.<br><br>Giờ khắc này đại lượng khô lâu, đại lượng vong linh lan tràn, t·ử v·ong cùng không rõ đang đan xen.<br><br>Vô số lực lượng pháp tắc tràn ngập bầu trời.<br><br>Hai đầu xuyên qua bầu trời Minh Giới Chi Hà, là lẳng lặng chảy xuôi đen kịt nước sông.<br><br>Chiến đấu còn tại bộc phát, cùng lan tràn.<br><br>Nương theo lấy Tử Vong chi lực không ngừng vận dụng, Thor quanh thân Tử Vong Pháp Tắc lực lượng vờn quanh càng phát nồng đậm.<br><br>Mơ hồ trong đó, Thor tựa hồ sa vào đến một loại cảm ngộ bên trong.<br><br>Đồng thời đại lượng bị hắn đ·ánh c·hết vong linh, cùng với khô lâu phía trên, từng sợi Tử Vong Pháp Tắc lực lượng bắt đầu hướng về Thor trên thân tràn vào vào.<br><br>Nương theo lấy những Tử Vong Pháp Tắc này lực lượng tràn vào, Thor trong mi tâm Tử Vong Pháp Tắc ấn ký càng phát rõ ràng.<br><br><div id="middle-content-three"></div><br><br>Thời gian chậm rãi chuyển dời.<br><br>Tại cái này một chỗ đen kịt thế giới bên trong.<br><br>Không có thời gian.<br><br>Không có cảm giác.<br><br>Chỉ có lít nha lít nhít vong linh, cùng với đỉnh đầu cái kia lao nhanh hai đầu Minh Giới Chi Hà.<br><br>Từ từ Thor thân thể cơ hồ triệt để biến thành đen kịt.<br><br>Đồng dạng khí tức t·ử v·ong bắt đầu ở trên người hắn lan tràn ra.<br><br>Chỉ là giờ khắc này, Thor cũng không có phát giác được cái này một phần biến hóa.<br><br>Hắn vẫn như cũ còn đang không ngừng chiến đấu.<br><br>Một bên khác.<br><br>Thor bước vào trong đó.<br><br>Ân ngươi bá tước cắn răng một cái, rất nhanh cũng làm ra quyết định.<br><br>"Michael!"<br><br>"Đại địa kỵ sĩ đi theo ta đi vào!"<br><br>"Những người khác, nếu là muốn nếm thử cũng có thể."<br><br>Engel bá tước mở miệng một tiếng, lập tức hít sâu một hơi, đồng dạng bước vào tại trong đó.<br><br>Sau lưng từng đạo thân ảnh cũng theo sát phía sau.<br><br>Lần này cùng trước đó thần khư đã không có gì khác nhau rồi, bước vào trong nháy mắt, lẫn nhau liền bị triệt để chia cắt ra.<br><br>Đồng dạng bầu trời, đồng dạng vong linh, đồng dạng khí tức t·ử v·ong xen lẫn, có thể cùng trước đó cũng đã bất đồng rồi.<br><br>Mà Thor cùng Engel bá tước mang đến kỵ sĩ đoàn.<br><br>Hai mặt nhìn nhau.<br><br>Cuối cùng có người cũng kìm nén không được đồng dạng bước vào trong đó.<br><br>Thời gian chậm rãi chuyển dời.<br><br>Giờ khắc này, thân ở tại trong Thần Khư đám người căn bản là không có cách cảm giác được thời gian trôi qua.<br><br>Ngoại giới.<br><br>Nương theo lấy giác đấu kết thúc.<br><br>Từng cái đỉnh cấp quý tộc đem ánh mắt đều như ngừng lại những cái kia còn sót lại pháp tắc mảnh vỡ chỗ tồn tại.<br><br>Xung đột tại không thể tránh khỏi tiếp tục bạo phát ra.<br><br>Khắp nơi chiến đấu tại bộc phát.<br><br>Tử vong tại không giây phút nào lan tràn.<br><br>Không chỉ có có nhân loại, còn có đại lượng ma thú.<br><br>Vương quốc c·hiến t·ranh sắp kết thúc.<br><br>So với pháp tắc mảnh vỡ, ma thú, ma thực đồng dạng cũng là thu hoạch.<br><br>Đặc biệt là đẳng cấp cao ma thú.<br><br>Không ít quý tộc cũng không khỏi hai mắt tỏa ánh sáng.<br><br>Mà tại cái này chút chiến đấu lan tràn bên trong.<br><br>Đại lượng máu tươi bắt đầu đổ vào tại mặt đất, những này lúc đầu không có gì thay đổi, có thể nương theo lấy Lôi Ngục bị khởi động, những máu tươi này giờ phút này lại là bắt đầu thẩm thấu tại mặt đất, bắt đầu hướng về Lôi Ngục chỗ tồn tại hội tụ.<br><br>Một trận to lớn vô cùng hiến tế, trong lúc lặng lẽ đã bắt đầu rồi.<br><br>Trận này vô ý thức thần khải, một trận tất cả mọi người không có phát giác thần khải.<br><br>Oanh.<br><br>Ầm ầm.<br><br>( chậm chút, ngay tại chỉnh lý đến tiếp sau, vương quốc c·hiến t·ranh không sai biệt lắm phải kết thúc rồi, tiếp xuống chính là lãnh địa chân chính nhảy lên thời điểm. ) </div>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="comment">
+            <div class="comment-bl" style="display: block;text-align: start;margin:1em 0 1em 50px;font-size: 30px;font-weight: 400;">
+                BÌNH LUẬN
+            </div>
+            <div class="container-1">
+                <form class="form-inline">
+                    <div class="input-group">
+                        <textarea onfocus="followPush();" class="form-control " id="cmtx" style="font-size:14px" placeholder="Nhập bình luận. Cảnh báo: nghiêm cấm vô não chửi bậy, chửi liên quan đến thể loại truyện, mô típ của truyện, bối cảnh của truyện. Nghiêm cấm bình luận chống lại nhà nước, danh nhân lịch sử, người vi phạm sẽ bị khóa tài khoản tùy mức độ."></textarea>
+                        <button type="button" class="btn btn-info " style="font-size:16px;" onclick="sendcmt()">Gửi</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <section class="quick-link">
+                    <a href="#">Truyện tranh</a>
+                    <a href="#">Truyện tranh</a>
+                    <a href="#">Truyện tranh</a>
+                    <a href="#">Đọc truyện tranh</a>
+                    <a href="#">Đọc truyện tranh</a>
+                    <a href="#">Truyennet</a>
+                    <a href="#">Truyện net</a>
+                    <a href="#">Truyen net</a>
+        </section>
+        <div class="footer-container">
+            <p>Copyright © 2024 KhoTruyen - Kho Đọc Truyện Tranh Hay Nhất.</p>
+            <div class="more-link">
+                <a href="#">Xuyên không</a>
+                <a href="#">Chuyển sinh</a>
+                <a href="#">Tiên hiệp</a>
+                <a href="#">Manhwa</a>
+                <a href="#">Manhua</a>
+        </div>
+        </div>
+    </footer>
+    <!-- <div class="setting" style="width: 50px; height: 50px; border-radius: 50%; position: fixed; right: 0; bottom: 0; margin: 50px;">
+        <button type="button" id="btnshowns" aria-label="Nút mở cài đặt" class="toolbar" style="border-radius: 50%; height: 50px; width: 50px; background: #eaeaea80; bottom: 20px; border: none; box-shadow: 0 0 3px gray; padding: 0" onclick="showConfigBox()">
+            <i class="fa-cogs fas" style="font-size: 26px; color: #6564638a;"></i>
+        </button>
+    </div>
+    <div class="modal">
+        <div class="modal_overlay"></div>
+        <div class="modal_body" style="border: 2px solid rgb(148, 148, 242);">
+            <div class="auth-form">
+                <div class="auth-form_header">
+                    <img class="img_heading" src="../giaodien/th.jpg" alt="">
+                    <h3 class="auth-form_heading"><b>Cài Đặt Đọc Truyện</b></h3>
+                    <button class="auth-form_close"><i class="fa-solid fa-xmark"></i></button>
+                </div>
+                <div class="auth-form_theme">
+                    <div class="theme_flex">
+                        <div class="theme_flex-set">
+                            <label for="bg" class="theme-set">Màu nền</label>
+                            <input data-x-bind="onChangeConfig()" type="color" id="background-color-dark" class="w-32" list="presetColorsDark">
+                            <datalist id="presetColorsDark">
+                                <option>#F8FAFC</option>
+                                <option>#f4f4f4</option>
+                                <option>#e9ebee</option>
+                                <option>#d5d8dc</option>
+                                <option>#f4f4e4</option>
+                                <option>#f5ebcd</option>
+                                <option>#eae4d3</option>
+                                <option>#f2f2f2</option>
+                                <option>#c2b49b</option>
+                                <option>#272729</option>
+                                <option>#232323</option>
+                                <option>#1e293b</option>
+                            </datalist>
+                        </div>
+                        <div class="theme_flex-set">
+                            <label for="" class="theme-set">Màu chữ</label>
+                            <input data-x-bind="onChangeConfig()" type="color" id="color-dark" class="w-32">
+                        </div>
+                        <div class="theme_flex-set">
+                            <label class="theme-set">Font chữ</label>
+                            <select data-x-bind="onChangeConfig('font-family')" id="font-family">
+                                <option value="Avenir Next">Avenir Next</option>
+                                <option value="Bookerly">Bookerly</option>
+                                <option value="Segoe UI">Segoe UI</option>
+                                <option value="Literata">Literata</option>
+                                <option value="Baskerville">Baskerville</option>
+                                <option value="Arial">Arial</option>
+                                <option value="Courier New">Courier New</option>
+                                <option value="Tahoma">Tahoma</option>
+                                <option value="Palatino Linotype">Palatino Linotype</option>
+                                <option value="Georgia">Georgia</option>
+                                <option value="Verdana">Verdana</option>
+                                <option value="Times New Roman">Times New Roman</option>
+                                <option value="Source Sans Pro">Source Sans Pro</option>
+                            </select>
+                        </div>
+                        <div class="theme_flex-set">
+                            <label class="theme-set">Cỡ chữ</label>
+                            <select data-x-bind="onChangeConfig('font-size')" id="font-style">
+                                <template data-x-for="value in fontSizes">
+                                    <option data-x-bind:selected="value == config['font-size']" data-x-bind:value="value" data-x-text="value">24px</option>
+                                </template>
+                                <option data-x-bind:selected="value == config['font-size']" data-x-bind:value="value" data-x-text="value" value="14px">14px</option>
+                                <option data-x-bind:selected="value == config['font-size']" data-x-bind:value="value" data-x-text="value" value="15px">15px</option>
+                                <option data-x-bind:selected="value == config['font-size']" data-x-bind:value="value" data-x-text="value" value="16px">16px</option>
+                                <option data-x-bind:selected="value == config['font-size']" data-x-bind:value="value" data-x-text="value" value="17px">17px</option>
+                                <option data-x-bind:selected="value == config['font-size']" data-x-bind:value="value" data-x-text="value" value="18px">18px</option>
+                                <option data-x-bind:selected="value == config['font-size']" data-x-bind:value="value" data-x-text="value" value="19px">19px</option>
+                                <option data-x-bind:selected="value == config['font-size']" data-x-bind:value="value" data-x-text="value" value="20px">20px</option>
+                                <option data-x-bind:selected="value == config['font-size']" data-x-bind:value="value" data-x-text="value" value="21px">21px</option>
+                                <option data-x-bind:selected="value == config['font-size']" data-x-bind:value="value" data-x-text="value" value="22px">22px</option>
+                                <option data-x-bind:selected="value == config['font-size']" data-x-bind:value="value" data-x-text="value" value="23px">23px</option>
+                                <option data-x-bind:selected="value == config['font-size']" data-x-bind:value="value" data-x-text="value" selected="selected" value="24px">24px</option>
+                                <option data-x-bind:selected="value == config['font-size']" data-x-bind:value="value" data-x-text="value" value="25px">25px</option>
+                                <option data-x-bind:selected="value == config['font-size']" data-x-bind:value="value" data-x-text="value" value="26px">26px</option>
+                                <option data-x-bind:selected="value == config['font-size']" data-x-bind:value="value" data-x-text="value" value="27px">27px</option>
+                                <option data-x-bind:selected="value == config['font-size']" data-x-bind:value="value" data-x-text="value" value="28px">28px</option>
+                                <option data-x-bind:selected="value == config['font-size']" data-x-bind:value="value" data-x-text="value" value="29px">29px</option>
+                                <option data-x-bind:selected="value == config['font-size']" data-x-bind:value="value" data-x-text="value" value="30px">30px</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="them-default">
+                    <center><button type="button" class="theme-default-btn" style="border: none;background-color: bisque;border-radius: 8px;width: 9em;height: 4em;">
+                        <span style="font-size: large;font-weight: 600;">Mặc định</span>
+                    </button></center>
+                </div>
+            </div>
+        </div>
+    </div> -->
+    
+    <script src="../giaodien/jquery-3.6.0.min.js"></script>
+</body>
+</html>
