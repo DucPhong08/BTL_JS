@@ -1,0 +1,442 @@
+    <title>{{book.name}}</title>
+
+<div class="inner">
+        <div class="inner_nd">
+            <div class="container">
+                <div class="container_row">
+                    <div id="thumb-lay" style="background: url({{book.img}});background-size:cover;height: 600px;filter: blur(8px);position: absolute;z-index: 0;margin: 10px 18px;right:0;left : -18px">
+                    </div>
+                    <div class="col" style="width: 100%;min-width: 240px;padding: 0">
+                        <center><img alt="Ảnh" 
+                        referrerpolicy="no-referrer" 
+                        style="width:240px;height:360px;box-shadow: 0 0 24px grey;position: absolute ;transform: translateX(-10em);background-size: cover"
+                         src="{{book.img}}" >
+                        </center>
+                    </div>
+                    <div class="col-name" style="padding: 12px;" >
+                        <center><h1 id="getnameTruyen" class="cap" style="font-size:32px;color:#007a2b;text-shadow: 0 0 8px gray;font-weight: 400;display: inline-block;margin:6px;">{{book.name}}</h1></center>
+                        <br>
+                        <i class="cap" style="margin-top: 22px;" ><i class="fas fa-user"></i><h2 style="display: inline-block;font-size: 16px;margin: 0 0 0 4px;font-weight: 400;">{{book.author}}</h2></i>
+                    </div>
+                </div>
+            </div>
+            <div class="blk" style="margin-top: 49em;">
+                <div class="blk-body">
+                        <div class="row justify-content-md-center p-1" style="margin: 0">
+                        <div class="col-3 col-lg-2">
+                            <span class="blk-item" title="39518 2519"><i class="far fa-eye"></i><br><p style="margin-bottom: 0;">{{totalViews}}</p></span>
+                        </div>
+                        <div class="col-3 col-lg-2">
+                            <span class="blk-item"><i class="fas fa-thumbs-up"></i><br><p style="margin-bottom: 0;">{{book.likesCount}} Thích</p></span> 
+                        </div>
+                        <div class="col-3 col-lg-2">
+                            <span class="blk-item" id="bookstatus"><i class="fas fa-star-half-alt"></i><br><p style="margin-bottom: 0;">{{book.status}}</p></span>
+                        </div>
+                        <div class="col-3 col-lg-2">
+                            <span class="blk-item" ><i class="fas fa-rss"></i><br><p style="margin-bottom: 0;">{{book.followersCount}} Theo dõi</p></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="blk" >
+                <div class="blk-top"><i class="fas fa-water"></i> Tóm tắt truyện</div>
+                <div id="book-sumary" style="font-size: 16px" class="blk-body">
+                    <p style="margin:0px" id="description">
+                        {{book.description}}
+                        <script>
+                            document.addEventListener("DOMContentLoaded", function() {
+                            var text = document.getElementById("description");
+                            text.innerHTML = text.innerHTML.replace(/\n/g, "<br>");
+                        });
+                        </script>
+                    </p>
+                </div>
+            </div> 
+            <div class="blk" >
+                <div class="blk-top"><i class="fas fa-info-circle"></i> Thông tin</div>
+                <div class="blk-body">Tên Truyện:&nbsp;&nbsp;&nbsp;&nbsp; {{book.name}}</div>
+                <div class="blk-body">Tác giả:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {{book.author}}</div>
+                <div class="blk-body">Thể loại:&nbsp;&nbsp;&nbsp;&nbsp;  {{book.category}} </div>		
+                <div class="blk-body">Nhập thời:&nbsp;&nbsp;&nbsp;{{time book.createdAt}}</div>
+            </div> 
+            <div class="blk">
+                <div class="blk-top"><i class="fas fa-dot-circle"></i> Thao tác</div>
+                <div class="blk-body">
+                    <div class="row justify-content-md-left " style="margin-top: 0;" >
+                        <div class="col-3 col-lg-2">
+                            <a href="#" id="readnow"  data-book-slug="{{book.slug}}"><span class="blk-item" id="readnowbtn"><i class="fas fa-external-link-alt"></i><br>Đọc tiếp</span></a>
+                        </div>
+                        <div class="col-3 col-lg-2">
+                            <span class="blk-item" onclick="likeStory('{{book._id}}')"><i class="fas fa-thumbs-up"></i><br>Thích</span>
+                        </div>
+                        <div class="col-3 col-lg-2">
+                            <span class="blk-item" onclick="followStory('{{book._id}}')" style="cursor: pointer;"><i class="fas fa-plus"></i><br>Theo dõi</span>
+                        </div>
+                        
+                        <div class="col-3 col-lg-2">
+                            <span class="blk-item" onclick="markthisbook()"><i class="fas fa-edit"></i><br>Báo cáo</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="blk" >
+                <div id="author-block" class="blk-top"><i class="fas fa-user"></i> Người Đăng</div>
+                <div class="blk-body">
+                    <a href="#"><img src="https://staticvn.sangtacvietcdn.xyz/img/useravatar120/user12.jpg?t=1715220207" alt="Avatar 12" 
+                     style="border-radius: 50%;box-shadow: 0 0 16px gray;height:50px;width:50px;margin:6px;">
+                    <span style="font-size:16px;margin-left:8px;color:gray;font-weight:500">{{book.poster}}</span>
+                    </a>
+                </div>
+            </div>
+            <div class="blk" id="chapterlist">
+                <div class="blk-top"><i class="fas fa-list"></i> <a href=""></a> Mục lục				
+                </div>
+                <div class="blk-body">
+                    <div class="flex">
+                        <div style="width: 100%;overflow-x: auto;overflow-y: hidden;white-space: nowrap"> 
+                            <span style="border-bottom: 2px solid green">Số Chương :{{totalCount }} chương</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="blk-body">
+                    <div id="chaptercontainer" class="container my-2" style="overflow: hidden; max-height: 180px; display: flex; flex-wrap: wrap;">
+                        {{#each reads}}
+                        <div class="col-md-4 mb-2" >
+                            <a href="/truyen/{{../book.slug}}/chuong-{{chap this.chapter}}"
+                             data-id="{{chap this.chapter}}" 
+                             style="display: block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;margin: 4px 0"
+                             
+                             >{{this.Chap}}</a>
+                        </div>
+                        {{/each}}
+                    </div>
+                </div>
+
+                    {{!-- <div id="chaptercontainer" style="overflow: hidden; max-height: 240px;">
+                        <div class="chaptercontainerInner">
+                            <div class="row">
+                             <ul> {{#each reads}}
+                                    <li><a href="/truyen/{{../book.slug}}/Chuong-{{chap this.Chap}}">{{this.Chap}}</a></li>
+                                {{/each}}</ul>
+                            </div>
+                        </div>
+                    </div> --}}
+                
+                <div class="blk-bot p-0">
+                    <div id="clicktoexp" onclick="toggleChapterList()" style="background: #eeeeee;text-align: center;padding: 10px;cursor:pointer;user-select: none;">Mở rộng <i class="fas fa-chevron-down"></i></div>
+                    <center style="font-weight: 600;">Chương mới: <span class="timeelap" id="lastupdatetime">{{time newestReadbook.createdAt}}</span></center>
+                </div>
+            </div>
+            <div class="comment">
+                <div class="comment-bl" style="display: block;text-align: start;margin:1em 0 1em 50px;font-size: 30px;font-weight: 400;">
+                    BÌNH LUẬN
+                </div>
+                <div class="container-1">
+                    <form class="block" onsubmit="comment('{{book.slug}}')">
+                        <div class="input-group">
+                            <textarea  class="form-control " name="content" id="cmtx" style="font-size:14px" placeholder="Nhập bình luận. Cảnh báo: nghiêm cấm vô não chửi bậy, chửi liên quan đến thể loại truyện, mô típ của truyện, bối cảnh của truyện. Nghiêm cấm bình luận chống lại nhà nước, danh nhân lịch sử, người vi phạm sẽ bị khóa tài khoản tùy mức độ." ></textarea>
+                            <button type="submit" class="btn btn-info " style="font-size:16px;" >Gửi</button>
+                        </div>
+                    </form>
+                    <div class="mt-4"></div>
+                    <div class="cmt_ok" id="cmt_okk"> 
+                        {{#each comment}}
+                        <div class="commentaaa">
+                            <div class="comment__message">{{this.content}}</div>
+                            <div class="commenttl">
+                                <div class="comment__user">{{this.userId}}</div>
+                                <div class="comment__time">{{time this.createdAt}}</div>
+                            </div>
+                        </div>
+                        {{/each}}
+                        
+                    </div>
+                   
+                    
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+ <div id="toast"></div>
+<script src="/js/detail.js"></script>
+
+
+
+<script src="/js/comment.js" >
+
+
+</script>
+
+
+
+
+
+
+
+<style>
+.commentaaa {
+
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 4px;
+    margin-bottom: 10px;
+    background-color: #f9f9f9;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease-in-out;
+    display: block;
+    max-width: 90%;
+    width: auto;
+    transform: translateX(-10px);
+}
+.commentaaa:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.comment__message {
+    font-size: 1em;
+    color: #555;
+    line-height: 1.5;
+    background-color: #fff;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 5px;
+}
+
+.commenttl {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.comment__user {
+    font-weight: bold;
+    font-size: 1.1em;
+    color: #333;
+}
+
+.comment__time {
+    font-size: 0.9em;
+    color: #999;
+}
+
+
+    /* section */
+.inner {
+            background-color: #6a6969;
+            width: 100%;
+            min-height: 2400px;
+            position: relative;
+        }
+
+        .inner_nd {
+            background-color: #d5d3d3;
+            position: relative;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1em;
+            box-sizing: border-box;
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            position: relative;
+        }
+
+        #thumb-lay {
+            background-size: cover;
+            height: 600px;
+            filter: blur(8px);
+            position: relative;
+            width: 100%;
+            z-index: 1;
+            top: 10px;
+            margin: 0 auto;
+        }
+
+        .col img {
+            position: absolute;
+            bottom: 0;
+            left: 62%;
+            top:15em;
+            transform: translateX(-50%);
+            width: 240px;
+            height: 360px;
+            box-shadow: 0 0 24px grey;
+            background-size: cover;
+            z-index: 0;
+        }
+
+        .col-name {
+            position: absolute;
+            margin-top: auto; 
+            width: 100%;
+            text-align: center;
+            z-index: 0;
+            right: 1em;
+            top: 40em;
+        }
+
+        .blk {
+            background-color: white;
+            border-radius: 8px;
+            margin: 10px auto;
+            padding: 1em;
+            box-sizing: border-box;
+            width: calc(100% - 2em);
+            max-width: 1200px;
+        }
+
+        .blk-body {
+            padding: 0 8px;
+            border-top: 1px solid #eeeeee;
+        }
+
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+
+        .blk-item {
+            display: block;
+            font-size: 14px;
+            font-weight: 600;
+            white-space: nowrap;
+            text-align: center;
+            margin: 1em 0;
+        }
+
+        .blk-top {
+            margin: 8px;
+        }
+
+        .comment {
+            border-top: 8px solid #6a6969;
+        }
+
+        .container-1 {
+            width: 100%;
+            padding: 15px;
+            box-sizing: border-box;
+            margin: 0 auto;
+        }
+
+        .form-control {
+            line-height: 1.5;
+            color: #495057;
+            background-color: #fff;
+            background-clip: padding-box;
+            border: 1px solid #ced4da;
+            width: 100%;
+            transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+        }
+
+        .input-group {
+            display: flex;
+            flex-wrap: nowrap;
+        }
+
+        .btn-info {
+            background-color: #2C7ABE;
+            color: #ffffff;
+            margin-left: 10px;
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+
+        @media (max-width: 768px) {
+            .inner_nd {
+                margin: 0;
+                padding: 1em;
+            }
+
+            .col img {
+                position: relative;
+                transform: none;
+                margin: 0 auto;
+
+            }
+
+            .col-name {
+                margin-top: 1em;
+            }
+
+            #thumb-lay {
+                margin: 0;
+                right: 0;
+            }
+
+            .blk {
+                width: 100%;
+                margin: 10px 0;
+            }
+
+            
+        }
+        
+        @media (max-width: 768px) {
+            .inner_nd {
+                margin: 0;
+                padding: 1em;
+            }
+
+            .col {
+                flex: 1 1 100%;
+                max-width: 100%;
+                margin: 1em 0;
+            }
+
+            .col-name {
+                position: relative;
+                margin: 1em 0;
+            }
+
+            #thumb-lay {
+                margin: 0;
+                right: 0;
+            }
+
+            .blk {
+                width: 100%;
+                margin: 10px 0;
+            }
+
+            
+        }
+/* section blk */
+/* commment */
+.comment {
+    border-top: 8px solid #6a6969;
+}
+.container-1 {
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin: 0 50px;
+}
+
+.form-control{
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    max-width: 90% ;
+    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+    margin-left: -12px;
+}
+.input-group{
+    display: flex;
+}
+.btn-info{
+    background-color: #2C7ABE;
+    color: #ffffff;
+    margin-left: 0;
+}
+
+</style>
