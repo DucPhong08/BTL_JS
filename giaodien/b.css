@@ -1,0 +1,326 @@
+
+/* đầu */
+.heading-bar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 80em;
+    margin: auto;
+    padding: 1em 0;
+}
+    .heading-bar h1{
+        text-transform: uppercase;
+    }
+    /* tìm kiếm */
+    .search-box{
+        width: 30%;
+        display: flex;
+        align-items: center;
+        position: relative;
+    }
+        .search-box input{
+            width: 100%;
+            padding: 1em ;
+            border-radius: 9px ;
+            font-size: 1em;
+        }
+        .search-icon{
+            background-color: white;
+            border: none;
+            width: 2em;
+            height: 2em;
+            cursor: pointer;
+            position: absolute;
+            right: 1em;
+        }
+        .zoom { 
+            font-size: 1.6em;
+            cursor: pointer;
+        }
+        /* tìm kiếm */
+    /* đăng nhập  */
+    .accoont{
+        display: flex;
+        justify-content: right;
+        
+    }
+    .accoont a{
+        margin: 0 0.5em;
+    }
+    .acoont_sau::after{
+        content: "|";
+        display: inline-block;
+    }
+    .acoount a:hover{
+        color: rgba(37, 35, 35, 0.7);
+    }
+/* đăng nhập  */
+
+
+/* Thông báo */
+
+.heading-bar--icon {
+    position: relative;
+}
+.heading-bar--icon button {
+    border: none;
+}  
+.heading__notify{
+    position: absolute;
+    top: 100%;
+    right: -30%;
+    width: 350px;
+    height: 300px;
+    border: 1px solid rgb(171, 224, 184);
+    background-color: var(--white--color);
+    overflow: auto; 
+    display: none;
+    animation: headerNotifyGrowth ease-in .2s ;
+    transform-origin: top right;
+    z-index: 999;
+}
+@keyframes headerNotifyGrowth {
+    from {
+        transform: scale(0);
+    }
+    to {
+        transform: scale(1);
+    }
+    
+}
+.heading__notify::before {
+    content: "";
+    border: 0.6em solid;
+    border-color: gray transparent transparent transparent;
+    position: absolute;
+    right: 0;
+    top:1%;
+}
+.heading__notify::-webkit-scrollbar {
+        display: none; /* Ẩn thanh cuộn trên Chrome và Safari */
+    }
+.heading__notify-header{
+    background-color: rgba(42, 43, 45, 0.7);
+    color: #EBEBEB;
+    height: 3em;
+    text-shadow: 1px 1px 1px wheat;
+}
+.heading__notify-header h3{
+    color: #999;
+    margin: 0 0 0 12px;
+    font-weight: 400;
+    font-size: 1.2rem;
+    line-height: 40px;
+    user-select: none;
+}
+.heading__notify-list{
+    padding-left: 0;
+}
+.heading__notify-item{
+    border-bottom: 1px solid rgb(203, 200, 200);
+}
+.heading__notify-item:hover{
+    background-color: aliceblue;
+}
+.heading__notify-name{
+    display: block;
+    font-size: 21px;
+    color: var(--black--color);
+    font-weight: 400;
+}
+.heading__notify-descriotion{
+    display: block;
+    font-size: 1.2em;
+    line-height: 1.6rem;
+    color: rgb(49, 51, 51);
+}
+.hien_an{
+    display: block;
+}
+/* Thông báo */
+/* menu */
+
+menu{
+    background-color: #2C7ABE;
+    text-transform: capitalize;
+}
+.menu-ul{
+    display: flex;
+    max-width: 80em;
+    margin: auto;
+}
+
+    .menu-li > a{
+        color: white;
+        padding: 1em 2em;
+        display: block;
+    }
+    .menu-li > a:hover{
+        background-color: #F18121;
+    }
+
+.droplist{
+    display: none;
+    z-index: 10;
+    padding: 1em 0;
+}
+    .droplist a{
+        display: block;
+        padding: 0.5em 1em;
+    }
+    .droplist a:hover{
+        color: #F18121;
+    }
+
+.droplist-fluid-container,
+.droplist-normal{
+    background-color: white;
+    position: absolute;
+    width: 15em;
+ }  
+
+.dropdown:hover .droplist{
+    display: block;
+}
+/* menu */
+/* modal đăng nhập */
+.modal{
+    position: fixed;
+    top:0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+    animation: fadeIn linear .1s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.modal_overlay{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 2;
+}
+.modal_body{
+    width: 400px;
+    height: 400px;
+    background-color: rgb(195, 241, 236);
+    position: relative;
+    z-index: 3;
+    border-radius: 5px;
+    animation: growth linear .1s;
+}
+/* .modal_inner{
+
+} */
+    .auth-form {
+        max-width: 400px;
+        height: 400px;
+        margin: 0 auto;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        background-color: #fff;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    .auth-form_dagki{
+        max-width: 450px;
+        height: 500px;
+        margin: 0 auto;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        background-color: #fff;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    .auth-form_header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 20px;
+    }
+
+    .img_heading {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        
+        object-fit: contain;
+    }
+
+    .auth-form_heading {
+        font-size: 1.5rem;
+        font-weight: bold;
+    }
+
+    .auth-form_close {
+        border: none;
+        background: none;
+        cursor: pointer;
+        font-size: 1.25rem;
+        color: #333;
+    }
+
+    .auth-form__form {
+        margin-bottom: 20px;
+    }
+
+    .auth-form_group {
+        margin-bottom: 15px;
+    }
+
+    .auth-form_flex {
+        display: block;
+        font-weight: bold;
+        margin-bottom: 15px;
+    }
+
+    .auth-form_input {
+        width: 100%;
+        padding: 11px;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+    }
+
+    .auth-form_login {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .auth-form_loginvao--btn {
+        padding: 10px 20px;
+        background-color: #e0f5aa;
+        border: none;
+        border-radius: 5px;
+        color: #fff;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        display: block;
+        margin: 20px auto;
+    }
+
+    .auth-form_loginvao--btn:hover {
+        background-color: #b2c97c;
+    }
+    .auth-form_text{
+        display: flex;
+        margin: 20px auto;
+    }
+    .auth-form_register {
+        background: none;
+        color: #95b6da;
+        cursor: pointer;
+        font-weight: bold;
+        transition: color 0.3s ease;
+        display: block;
+        margin-left: 15px;
+    }
+
+    .auth-form_register:hover {
+        color: #2474c9;
+    }
+
+/* modal đăng nhập */

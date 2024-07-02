@@ -1,0 +1,233 @@
+    <title>{{book.name}}</title>
+
+<div class="inner">
+        <div class="inner_nd">
+            <div class="container">
+                <div class="container_row">
+                    <div id="thumb-lay" style="background: url({{book.img}});background-size:cover;height: 600px;filter: blur(8px);position: absolute;width: calc(100% - 2em);z-index: 1;margin: 10px 18px;right:0">
+                    </div>
+                    <div class="col" style="width: 100%;min-width: 240px;padding: 0">
+                        <center><img alt="Trùng sinh mèo đen, bọn hắn đều gọi ta quỷ dị chi chủ" referrerpolicy="no-referrer" style="width:240px;height:360px;box-shadow: 0 0 24px grey;position: absolute ;transform: translateX(-10em);background-size: cover" src="{{book.img}}" >
+                        </center>
+                    </div>
+                    <div class="col-name" style="padding: 12px;" >
+                        <center><h1 id="getnameTruyen" class="cap" style="font-size:32px;color:#007a2b;text-shadow: 0 0 8px gray;font-weight: 400;display: inline-block;margin:6px;">{{book.name}}</h1></center>
+                        <br>
+                        <i class="cap" style="margin-top: 22px;" ><i class="fas fa-user"></i><h2 style="display: inline-block;font-size: 16px;margin: 0 0 0 4px;font-weight: 400;">{{book.author}}</h2></i>
+                    </div>
+                </div>
+            </div>
+            <div class="blk" style="margin-top: 49em;">
+                <div class="blk-body">
+                        <div class="row justify-content-md-center p-1" style="margin: 0">
+                        <div class="col-3 col-lg-2">
+                            <span class="blk-item" title="39518 2519"><i class="far fa-eye"></i><br><p style="margin-bottom: 0;">{{book.status.reads}}</p></span>
+                        </div>
+                        <div class="col-3 col-lg-2">
+                            <span class="blk-item" onclick="promote();"><i class="fas fa-thumbs-up"></i><br><p style="margin-bottom: 0;">{{book.status.likes}} Thích</p></span> 
+                        </div>
+                        <div class="col-3 col-lg-2">
+                            <span class="blk-item" id="bookstatus"><i class="fas fa-star-half-alt"></i><br><p style="margin-bottom: 0;">{{book.status.cont}}</p></span>
+                        </div>
+                        <div class="col-3 col-lg-2">
+                            <span class="blk-item" onclick="followthisbook()"><i class="fas fa-rss"></i><br><p style="margin-bottom: 0;">{{book.status.monitor}} Theo dõi</p></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="blk" >
+                <div class="blk-top"><i class="fas fa-water"></i> Tóm tắt truyện</div>
+                <div id="book-sumary" style="font-size: 16px" class="blk-body">
+                    <p style="margin:0px" id="description">
+                        {{book.description}}
+                        <script>
+                            document.addEventListener("DOMContentLoaded", function() {
+                            var text = document.getElementById("description");
+                            text.innerHTML = text.innerHTML.replace(/\n/g, "<br>");
+                        });
+                        </script>
+                    </p>
+                </div>
+            </div> 
+            <div class="blk" >
+                <div class="blk-top"><i class="fas fa-info-circle"></i> Thông tin</div>
+                <div class="blk-body">Tên Truyện:&nbsp;&nbsp;&nbsp;&nbsp; {{book.name}}</div>
+                <div class="blk-body">Tác giả:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {{book.author}}</div>
+                <div class="blk-body">Thể loại:&nbsp;&nbsp;&nbsp;&nbsp;  {{book.category}} </div>		
+                <div class="blk-body">Nhập thời:&nbsp;&nbsp;&nbsp;{{book.createdAt}}</div>
+            </div> 
+            <div class="blk">
+                <div class="blk-top"><i class="fas fa-dot-circle"></i> Thao tác</div>
+                <div class="blk-body">
+                    <div class="row justify-content-md-left " style="margin-top: 0;" >
+                        <div class="col-3 col-lg-2">
+                            <span class="blk-item" id="readnowbtn" onclick="readnow()"><i class="fas fa-external-link-alt"></i><br>Đọc tiếp</span>
+                        </div>
+                        <div class="col-3 col-lg-2">
+                            <span class="blk-item" onclick="promote();"><i class="fas fa-thumbs-up"></i><br>Thích</span>
+                        </div>
+                        <div class="col-3 col-lg-2">
+                            <span class="blk-item" onclick="followthisbook()"><i class="fas fa-plus"></i><br>Theo dõi</span>
+                        </div>
+                        <div class="col-3 col-lg-2">
+                            <span class="blk-item" onclick="writetruyenngon()"><i class="fas fa-edit"></i><br>Preview</span>
+                        </div>
+                        <div hidden="" class="col-3 col-lg-2">
+                            <span class="blk-item" onclick="markthisbook()"><i class="fas exclamation-triangle"></i><br>Báo cáo</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="blk" >
+                <div id="author-block" class="blk-top"><i class="fas fa-user"></i> Người Đăng</div>
+                <div class="blk-body">
+                    <a href="/user/12/"><img src="https://staticvn.sangtacvietcdn.xyz/img/useravatar120/user12.jpg?t=1715220207" alt="Avatar 12" onerror="this.src='/default.png'" style="border-radius: 50%;box-shadow: 0 0 16px gray;height:50px;width:50px;margin:6px;"><span style="font-size:16px;margin-left:8px;color:gray;font-weight:500">Chân Khống</span></a></div>
+            </div>
+            <div class="blk" id="chapterlist">
+                <div class="blk-top"><i class="fas fa-list"></i> <a href=""></a> Mục lục				
+                </div>
+                <div class="blk-body">
+                    <div class="flex">
+                        <div style="width: 100%;overflow-x: auto;overflow-y: hidden;white-space: nowrap"> 
+                            <span style="border-bottom: 2px solid green">Số Chương :</span><span id="noofchapter"></span> chương</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="blk-body">
+                    <div id="chaptercontainer" style="overflow: hidden; max-height: 240px;">
+                        <div class="container my-2">
+                            <div class="row">
+                                {{#each reads}}
+                                <div class="col-md-4 mb-2">
+                                    <a href="/truyen/{{../book.slug}}/chuong-{{chap this.chapter}}">{{this.Chap}}</a>
+                                </div>
+                                {{/each}}
+                            </div>
+                        </div>
+                    </div>
+
+                    {{!-- <div id="chaptercontainer" style="overflow: hidden; max-height: 240px;">
+                        <div class="chaptercontainerInner">
+                            <div class="row">
+                             <ul> {{#each reads}}
+                                    <li><a href="/truyen/{{../book.slug}}/Chuong-{{chap this.Chap}}">{{this.Chap}}</a></li>
+                                {{/each}}</ul>
+                            </div>
+                        </div>
+                    </div> --}}
+                </div>
+                <div class="blk-bot p-0">
+                    <div id="clicktoexp" onclick="expandchapterlist()" style="background: #eeeeee;text-align: center;padding: 10px;">Mở rộng <i class="fas fa-chevron-down"></i></div>
+                    <center>Chương mới: <span class="timeelap" id="lastupdatetime">2 giờ trước</span></center>
+                    <div onclick="renewchapter(true);" style="background: #eeeeee;text-align: center;padding: 10px;">Cập nhật chương mới <i class="fas fa-sync-alt"></i></div>
+                </div>
+            </div>
+            <div class="comment">
+                <div class="comment-bl" style="display: block;text-align: start;margin:1em 0 1em 50px;font-size: 30px;font-weight: 400;">
+                    BÌNH LUẬN
+                </div>
+                <div class="container-1">
+                    <form class="form-inline">
+                        <div class="input-group">
+                            <textarea onfocus="followPush();" class="form-control " id="cmtx" style="font-size:14px" placeholder="Nhập bình luận. Cảnh báo: nghiêm cấm vô não chửi bậy, chửi liên quan đến thể loại truyện, mô típ của truyện, bối cảnh của truyện. Nghiêm cấm bình luận chống lại nhà nước, danh nhân lịch sử, người vi phạm sẽ bị khóa tài khoản tùy mức độ."></textarea>
+                            <button type="button" class="btn btn-info " style="font-size:16px;" onclick="sendcmt()">Gửi</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+<style>
+    /* section */
+.inner {
+    background-color: #6a6969;
+    width: 100%;
+    height: 3000px;
+    position: relative;
+}
+.inner_nd {
+    background-color: #d5d3d3;
+    position: absolute;
+    width: calc(100% - 360px);
+    margin: 0 196px 1em 196px;
+}
+
+.col{
+    position: absolute;
+    z-index: 2;
+    top: 16em;
+}
+.col-name {
+    position: absolute;
+    top: 40em; 
+    right: 1em;
+    z-index: 3;
+    width: 100%;
+    text-align: center; 
+}
+
+.blk{
+    width: calc(100% - 100px);
+    display: block;
+    background-color: white;
+    border-radius: 8px;
+    margin: 10px 50px 5px 50px;
+}
+
+.blk-body {
+    padding: 0 8px;
+    border-top: 1px solid #eeeeee;
+}
+.row {
+    display: flex;
+    flex-wrap:wrap;
+    justify-content: space-around;
+}
+.blk-item  {
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+    white-space: nowrap;
+    text-align: center;
+}
+.blk-top{
+    margin: 8px ;
+}
+@media (min-width: 768px) {
+    .blk-top:first-child {
+        border-radius: 6px;
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+    }
+}
+/* section blk */
+/* commment */
+.comment {
+    border-top: 8px solid #6a6969;
+}
+.container-1 {
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin: 0 50px;
+}
+
+.form-control{
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    width: calc(100% - 50px);
+    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+    margin-left: -12px;
+}
+.input-group{
+    display: flex;
+}
+.btn-info{
+    background-color: #2C7ABE;
+    color: #ffffff;
+}
+
+</style>

@@ -1,0 +1,28 @@
+
+.quick-link{
+    text-align: center;
+    
+}
+    .quick-link a{
+        margin: 0 0.5em;
+    }
+    .quick-link a:last-child{
+        margin-right: 0;
+    }
+    .quick-link a:hover{
+        color: #F18121;
+    }
+.footer-container{
+    max-width: 80em;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    padding: 1em 0;
+}
+    .more-link a{
+        padding: 0 0.5em;
+        text-transform: capitalize;
+    }
+    .more-link a:hover{
+        color: #F18121;
+    }

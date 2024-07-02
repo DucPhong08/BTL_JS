@@ -1,0 +1,138 @@
+
+.content_name{
+    margin: 1em 0;
+}
+#bookchapnameholder {
+    display: block;
+    text-align: -webkit-center;
+    unicode-bidi: isolate;
+    margin: 1em 0;
+}
+.content-next-chap{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    margin: 3px 210px;
+}
+.contentbox{
+    margin: 3px 210px;
+}
+/* comment */
+.comment {
+    border-top: 1px solid #6a6969;
+    margin: 10px 200px;
+    margin-bottom: 2em;
+}
+.container-1 {
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin: 0 50px;
+}
+
+.form-control{
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    width: calc(100% - 50px);
+    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+    margin-left: -12px;
+}
+.input-group{
+    display: flex;
+}
+.btn-info{
+    background-color: #2C7ABE;
+    color: #ffffff;
+}
+ /* modal */
+ .modal{
+    position: fixed;
+    top:0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+    animation: fadeIn linear .1s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.modal_overlay{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 2;
+}
+.modal_body{
+    width: 450px;
+    height: 420px;
+    background-color: rgb(195, 241, 236);
+    position: relative;
+    z-index: 3;
+    border-radius: 5px;
+    animation: growth linear .1s;
+}
+/* modal */
+ /* form */
+.auth-form {
+    max-width: 450px;
+    height: 420px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.auth-form_header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    margin-right: 20px;
+}
+
+.img_heading {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: contain;
+}
+
+.auth-form_heading {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.auth-form_close {
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-size: 1.25rem;
+    color: #333;
+} 
+
+/*  */
+.theme_flex-set{
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0;
+}
+.theme-set{
+    font-size: 20px;
+    font-weight: 500;
+}
+ #font-family,
+ #font-style{
+    width: 200px;
+    height: 40px;
+    border-radius: 0.9em;
+ }
+.them-default{
+    margin: 3em 0;
+}

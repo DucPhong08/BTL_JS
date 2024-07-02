@@ -1,0 +1,272 @@
+@charset "UTF-8";
+* {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 100%;
+  line-height: 1.6rem;
+  font-family: "Roboto", sans-serif;
+  box-sizing: border-box;
+}
+
+:root {
+  --primary-color:rgba(209, 60, 60, 0.848);
+  --white--color: rgb(159, 150, 150);
+  --black--color: black;
+  --text--color:#333;
+  --growth-form:0.7;
+  --growth-to:1;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #EBEBEB;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+li {
+  list-style: none;
+}
+
+header, footer {
+  background-color: rgb(247, 244, 244);
+}
+
+button {
+  border: none;
+  cursor: pointer;
+}
+
+/* animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes growth {
+  from {
+    transform: scale(var(--growth-form));
+  }
+  to {
+    transform: scale(var(--growth-to));
+  }
+}
+/* đầu */
+.heading-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 80em;
+  margin: auto;
+  padding: 1em 0;
+}
+
+.heading-bar h1 {
+  text-transform: uppercase;
+}
+
+/* tìm kiếm */
+.search-box {
+  width: 30%;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.search-box input {
+  width: 100%;
+  padding: 1em;
+  border-radius: 9px;
+  font-size: 1em;
+}
+
+.search-icon {
+  background-color: white;
+  border: none;
+  width: 2em;
+  height: 2em;
+  cursor: pointer;
+  position: absolute;
+  right: 1em;
+}
+
+.zoom {
+  font-size: 1.6em;
+  cursor: pointer;
+}
+
+/* tìm kiếm */
+/* đăng nhập  */
+.accoont {
+  display: flex;
+  justify-content: right;
+}
+
+.accoont a {
+  margin: 0 0.5em;
+}
+
+.acoont_sau::after {
+  content: "|";
+  display: inline-block;
+}
+
+.acoount a:hover {
+  color: rgba(37, 35, 35, 0.7);
+}
+
+/* đăng nhập  */
+/* Thông báo */
+.heading-bar--icon {
+  position: relative;
+}
+
+.heading-bar--icon button {
+  border: none;
+}
+
+.heading__notify {
+  position: absolute;
+  top: 100%;
+  right: -30%;
+  width: 350px;
+  height: 300px;
+  border: 1px solid rgb(171, 224, 184);
+  background-color: var(--white--color);
+  overflow: auto;
+  display: none;
+  animation: headerNotifyGrowth ease-in 0.2s;
+  transform-origin: top right;
+  z-index: 999;
+}
+
+@keyframes headerNotifyGrowth {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+.heading__notify::before {
+  content: "";
+  border: 0.6em solid;
+  border-color: gray transparent transparent transparent;
+  position: absolute;
+  right: 0;
+  top: 1%;
+}
+
+.heading__notify::-webkit-scrollbar {
+  display: none; /* Ẩn thanh cuộn trên Chrome và Safari */
+}
+
+.heading__notify-header {
+  background-color: rgba(42, 43, 45, 0.7);
+  color: #EBEBEB;
+  height: 3em;
+  text-shadow: 1px 1px 1px wheat;
+}
+
+.heading__notify-header h3 {
+  color: #999;
+  margin: 0 0 0 12px;
+  font-weight: 400;
+  font-size: 1.2rem;
+  line-height: 40px;
+  user-select: none;
+}
+
+.heading__notify-list {
+  padding-left: 0;
+}
+
+.heading__notify-item {
+  border-bottom: 1px solid rgb(203, 200, 200);
+}
+
+.heading__notify-item:hover {
+  background-color: aliceblue;
+}
+
+.heading__notify-name {
+  display: block;
+  font-size: 21px;
+  color: var(--black--color);
+  font-weight: 400;
+}
+
+.heading__notify-descriotion {
+  display: block;
+  font-size: 1.2em;
+  line-height: 1.6rem;
+  color: rgb(49, 51, 51);
+}
+
+.hien_an {
+  display: block;
+}
+
+/* Thông báo */
+.quick-link {
+  text-align: center;
+}
+
+.quick-link a {
+  margin: 0 0.5em;
+}
+
+.quick-link a:last-child {
+  margin-right: 0;
+}
+
+.quick-link a:hover {
+  color: #F18121;
+}
+
+.footer-container {
+  max-width: 80em;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  padding: 1em 0;
+}
+
+.more-link a {
+  padding: 0 0.5em;
+  text-transform: capitalize;
+}
+
+.more-link a:hover {
+  color: #F18121;
+}
+
+.nav-item {
+  margin: 0 2rem;
+}
+
+.nav-item:hover {
+  background-color: #F18121;
+  color: var(--white--color);
+}
+
+.navbar-brand,
+.nav-item {
+  padding: 0.5rem 0.5em;
+}
+
+/*# sourceMappingURL=app.css.map */
