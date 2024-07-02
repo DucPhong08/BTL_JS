@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const slug = require('mongoose-slug-updater');
 const mongoose_delete = require('mongoose-delete');
+const paginate = require('mongoose-paginate-v2');
 mongoose.plugin(slug);
 const Schema = mongoose.Schema;
 
@@ -9,7 +10,7 @@ const blogbooks = new Schema({
     Chapter:{type:'String', maxLength:1},
     img : {type:'String', maxLength:255},
     slug : {type:'String',slug :'name' ,unique : true} ,
-    deleted : {type:'Boolean', default:false ,}
+    deleted : {type:'Boolean', default:false ,},
   },
   {
     timestamps: true,
@@ -21,4 +22,5 @@ const blogbooks = new Schema({
    deletedAt:true,
  
  });
+ blogbooks.plugin(paginate);
 module.exports = mongoose.model('blogbooks',blogbooks);

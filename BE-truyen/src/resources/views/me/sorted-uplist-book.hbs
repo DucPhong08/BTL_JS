@@ -19,7 +19,7 @@
         <tr>
             <th scope="row">{{sum @index 1}}</th>
             <td>{{this.Chap}}</td>
-            <td>{{this.updatedAt}}</td>
+            <td>{{time this.updatedAt}}</td>
             <td>
                 <a href="/book/{{../book.slug}}/{{this.slug}}/editchap" class="btn btn-link">Sửa</a>
                 <a href="" class="btn btn-link" data-toggle="modal" data-id ="{{this.slug}}" data-target="#delete-chap-modal">Xoá</a>
@@ -67,7 +67,7 @@
 
 <script>
     document.addEventListener("DOMContentLoaded", function(){
-        var chapID;
+       
         var deleteForm = document.forms['delete-chap-form'];
         var btndelete = document.getElementById('btn-delete-chap');
         $('#delete-chap-modal').on('show.bs.modal', function (event) {

@@ -34,6 +34,14 @@
 			    <label for="ip-description">Giới thiệu</label>
 			    <textarea style="min-height: 400px" class="form-control" id="ip-description" placeholder="Giới thiệu tóm tắt"  name="description" >{{book.description}}</textarea>
 			  </div>
+			  <div class="form-group">
+					<label for="status-label">Trạng Thái:</label>
+					<select id="gender" class="form-auto" name="status">
+						<option value="Còn Tiếp" {{#if (eq book.status "Còn Tiếp")}}selected{{/if}}>Còn Tiếp</option>
+						<option value="Tạm Ngưng" {{#if (eq book.status "Tạm Ngưng")}}selected{{/if}}>Tạm Ngưng</option>
+						<option value="Hoàn Thành" {{#if (eq book.status "Hoàn Thành")}}selected{{/if}}>Hoàn Thành</option>
+					</select>
+				</div>
 			  <div class="text-center"><button type="submit" class="btn btn-primary" >Sửa truyện</button></div>
 			  
 			</form>

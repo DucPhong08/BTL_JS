@@ -1,0 +1,100 @@
+<title>Truyện Theo dõi</title>
+<div class="mt-4 mx-5 " style="height: 500px;">
+    <h2>
+        Truyện bạn theo dõi
+    </h2>
+    
+    <table class="table " style="margin-top: 2em;min-height: 360px;">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Tên Truyện</th>
+            <th scope="col">Chương mới</th>
+            <th scope="col">Thời Gian </th>
+            <th scope="col" colspan="1">Thao Tác</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each book}}
+        <tr>
+            <th scope="row">{{sum @index 1}}</th>
+            <td><form action="/truyen/{{this.slug}}"><button type="submit" style="outline: none;background-color: #EBEBEB;">{{this.name}}</button></form></td>
+            <td><form action="/truyen/{{this.slug}}/chuong-{{chap this.latestChapter}}"><button type="submit" style="outline: none;background-color: #EBEBEB;">{{this.latestChapter}}</button></form></td>
+            <td>{{time this.latestChapterTime}}</td>
+            <td>
+                <a href="" class="btn btn-info"  data-toggle="modal" data-id ="{{this._id}}" data-target="#delete-book-modal">Bỏ theo dõi</a>
+            </td>
+        </tr>
+        {{else}}
+        <tr>
+          <td colspan="5">
+            <div class="alert alert-warning text-center">
+                <span class="mx-1"></span>
+                <a href="/" class="btn-link">Hãy tìm truyện bạn yêu thích , theo dõi .</a>
+            </div>
+          </td>
+        </tr>
+        {{/each }}
+    </tbody>
+</table>
+{{!-- confirm delete --}}
+<div class="modal fade" id="delete-book-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Thông báo</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+       Bạn bỏ theo dõi truyện ?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" id="agree-btn">YEppppp</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Huỷ</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+ document.addEventListener("DOMContentLoaded", function(){
+        var storyId;
+        var btndelete = document.getElementById('agree-btn');
+       
+        $('#delete-book-modal').on('show.bs.modal', function (event) {
+            var button = $(event.relatedTarget) 
+            storyId = button.data('id')
+            
+        })
+        
+        btndelete.onclick = function() {
+            const token = localStorage.getItem('token');
+            if (!token) {
+                console.error('Lỗi: Bạn cần đăng nhập để hủy theo dõi truyện');
+                return;
+            }
+
+            fetch(`/unfollow/${storyId}`, {
+                method: 'DELETE',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`
+                }
+            })
+            .then(data => {
+                console.log('Thành công hoặc thất bại:', data);
+                window.location.reload()
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+        }
+ })
+
+
+
+
+
+</script>

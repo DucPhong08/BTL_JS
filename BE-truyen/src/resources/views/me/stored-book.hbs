@@ -3,8 +3,8 @@
     <h2>
         <a href="/">Trang Chủ</a> / Truyện Của Tôi Đăng
     </h2>
-    <a href="/me/trash/book" class="btn-link ">Thùng rác ({{deletedCount}})</a><br>
-    <a href="/dang-truyen" class="btn-link">Đăng Truyện</a>
+    <a href="/me/trash/book" class="btn-link ">Thùng rác ({{deletedCount}})</a>
+    <a href="/dang-truyen" class="btn-link " style="float:right; color:grey"><h4>Đăng Truyện</h4></a>
     <table class="table">
     <thead>
         <tr>
@@ -16,12 +16,12 @@
         </tr>
     </thead>
     <tbody>
-        {{#each book}}
+        {{#each storedBooks}}
         <tr>
             <th scope="row">{{sum @index 1}}</th>
             <td>{{this.name}}</td>
             <td>{{this.Chapter}}</td>
-            <td>{{this.updatedAt}}</td>
+            <td>{{time this.updatedAt}}</td>
             <td>
                 <a href="/book/{{this.slug}}/edit" class="btn btn-link">Sửa</a>
                 <a href="" class="btn btn-link" data-toggle="modal" data-id ="{{this.slug}}" data-target="#delete-book-modal">Xoá</a>

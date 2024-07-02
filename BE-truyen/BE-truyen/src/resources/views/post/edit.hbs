@@ -1,0 +1,48 @@
+    <title>Đăng Truyện</title>
+
+<div class="container shadow p-2 bg-light">
+		<div class="breadcum p-1">
+			<a href='/'>Trang Chủ</a>/ Sửa  </div>
+		<br>
+		<div class="main ml-1" id="formaddbook">
+			<form id="formtmp" method="POST" action="/book/{{book.slug}}?_method=PUT">
+			  <div class="form-group">
+			    <label for="ip-name">Tên truyện</label>
+			    <input type="text" class="form-control" id="ip-name" placeholder="Tên truyện" value="{{book.name}}" name="name">
+			  </div>
+			  <div class="form-group">
+			    <label for="ip-author">Tác giả/Bút danh</label>
+			    <input type="text" class="form-control" id="ip-author" placeholder="Tác giả/Bút danh" value="{{book.author}}" name="author">
+			  </div>
+			  <div class="form-group">
+			    <label for="ip-category">Thể loại</label>
+			    <input type="text" class="form-control" id="ip-category" placeholder="Thể loại" value="{{book.category}}" name="category">
+			  </div>
+			  <div class="form-group">
+			    <label for="ip-thumb">Ảnh bìa</label>
+			    <div class="input-group">
+				    <input type="text" class="form-control" id="ip-thumb" placeholder="Ảnh bìa" value="{{book.img}}" name="img">
+				    <div class="input-group-append">
+					    <button type="button" class="btn btn-primary" onclick="uploadThumbImage()">Up ảnh</button>
+					</div>
+				</div>
+				<div style="text-align:right;">
+					<img id="previewthumb" style="max-width: 320px;max-height: 540px;">
+				</div>
+			  </div>
+			  <div class="form-group">
+			    <label for="ip-description">Giới thiệu</label>
+			    <textarea style="min-height: 400px" class="form-control" id="ip-description" placeholder="Giới thiệu tóm tắt"  name="description" >{{book.description}}</textarea>
+			  </div>
+			  <div class="text-center"><button type="submit" class="btn btn-primary" >Sửa truyện</button></div>
+			  
+			</form>
+		</div>
+				<div style="padding: 10px;">
+			Ghi chú: <br>
+			- Tên truyện tối thiểu 2 cụm từ.<br>
+			- Ảnh bìa là link hình ảnh có đuôi .jpg,.png,.gif.<br>
+			- Giới thiệu tóm tắt có thể sử dụng những code dưới đây<br>
+			+ [url=liên kết]Tên liên kết[/]: tạo liên kết đến trang web khác.<br>
+		</div>
+	</div>

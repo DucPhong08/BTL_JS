@@ -1,4 +1,5 @@
-<div class="content">
+<title>{{read.Chap}}</title>
+<div class="content" id="readnow" data-book-slug="{{book.slug}}">
         <div class="content_name">
             <a href="/truyen/{{book.slug}}" id="booknameholder" style="font-size: 24px;font-weight: 700;color: gray;display: block;text-align: center;"> {{book.name}}</a>
             <center id="bookchapnameholder" style="color: gray">
@@ -12,9 +13,9 @@
                 </div>
             </div>
             <div class="content_doc" id="content-container" style="min-height: 300px;padding: 0;">
-                <div class="contentbox" style="font-family:arial;font-size:18px;">
+                <div class="contentbox" style="font-family:arial;font-size:24px;">
                     <span style="color:gray;font-size:12px;">@Bạn đang đọc bản lưu trong DB</span>
-                    <p id="content">
+                    <p id="content" style="margin-bottom: 0;">
                         {{read.content}}
                             <script>
                                 document.addEventListener("DOMContentLoaded", function() {
@@ -25,13 +26,20 @@
                     </p>
                 </div>
             </div>
+            <div class="content-next" style="background: #8e8d8d;font-size: 16px;padding: 6px 0;font-weight: 500">
+                <div class="content-next-chap" style="text-align: center;">
+                    <a  id="navprevtop" href="" data-id="{{chap read.slug}}" ><i class="fas fa-chevron-left"></i> Chương trước</a>
+                    <a id="navcentertop" href="/truyen/{{book.slug}}"> Mục lục </a>
+                    <a id="navnexttop" href="" data-id="{{chap read.slug}}">Chương sau <i class="fas fa-chevron-right"></i></a>
+                </div>
+            </div>
         </div>
         <div class="comment">
             <div class="comment-bl" style="display: block;text-align: start;margin:1em 0 1em 50px;font-size: 30px;font-weight: 400;">
                 BÌNH LUẬN
             </div>
             <div class="container-1">
-                <form class="form-inline">
+                <form class="block">
                     <div class="input-group">
                         <textarea onfocus="followPush();" class="form-control " id="cmtx" style="font-size:14px" placeholder="Nhập bình luận. Cảnh báo: nghiêm cấm vô não chửi bậy, chửi liên quan đến thể loại truyện, mô típ của truyện, bối cảnh của truyện. Nghiêm cấm bình luận chống lại nhà nước, danh nhân lịch sử, người vi phạm sẽ bị khóa tài khoản tùy mức độ."></textarea>
                         <button type="button" class="btn btn-info " style="font-size:16px;" onclick="sendcmt()">Gửi</button>
@@ -40,41 +48,218 @@
             </div>
         </div>
     </div>
-<script>
-        document.addEventListener("DOMContentLoaded", function(){
-    var chapID ;
-    const blinkloadprevchap = document.getElementById('navprevtop')
-    const blinkloadnextchap = document.getElementById('navnexttop')
+<div class="setting" style="width: 50px; height: 50px; border-radius: 50%; position: fixed; right: 0; bottom: 0; margin: 50px;">
+        <button type="button" id="btnshowns" aria-label="Nút mở cài đặt" class="toolbar" style="border-radius: 50%; height: 50px; width: 50px; background: #eaeaea80; bottom: 20px; border: none; box-shadow: 0 0 3px gray; padding: 0" onclick="showConfigBox()">
+            <i class="fa-cogs fas" style="font-size: 26px; color: #6564638a;"></i>
+        </button>
+    </div>
+    <div class="set-up"  style="display: none;">
+        <div class="tong_aaa"></div>
+            <div class="set_up_aaaaaaaaa">
+                <div class="dep-trai">
+                    <img class="img_heading" src="https://mona.media/wp-content/uploads/2023/05/slogan-la-gi.png" alt="">
+                    <h3 class="auth-form_heading"><b>Cài Đặt Đọc Truyện</b></h3>
+                    <button class="close_aaa"><i class="fa-solid fa-xmark"></i></button>
+                </div>
+                <div class="auth-form_theme">
+                    <div class="theme_flex">
+                        <div class="theme_flex-set">
+                            <label for="bg" class="theme-set">Màu nền</label>
+                            <input data-x-bind="onChangeConfig('bg')" type="color" id="background-color-dark" class="w-32" list="presetColorsDark">
+                            <datalist id="presetColorsDark">
+                                <option>#F8FAFC</option>
+                                <option selected="selected">#f4f4f4</option>
+                                <option>#e9ebee</option>
+                                <option>#d5d8dc</option>
+                                <option>#f4f4e4</option>
+                                <option>#f5ebcd</option>
+                                <option>#eae4d3</option>
+                                <option>#f2f2f2</option>
+                                <option>#c2b49b</option>
+                                <option>#272729</option>
+                                <option>#232323</option>
+                                <option>#1e293b</option>
+                            </datalist>
+                        </div>
+                        <div class="theme_flex-set">
+                            <label for="" class="theme-set">Màu chữ</label>
+                            <input data-x-bind="onChangeConfig('color')" type="color" id="color-dark" class="w-32">
+                        </div>
+                        <div class="theme_flex-set">
+                            <label class="theme-set">Font chữ</label>
+                            <select data-x-bind="onChangeConfig('font-family')" id="font-family">
+                                <option value="Avenir Next">Avenir Next</option>
+                                <option value="Bookerly">Bookerly</option>
+                                <option value="Segoe UI">Segoe UI</option>
+                                <option value="Literata">Literata</option>
+                                <option value="Baskerville">Baskerville</option>
+                                <option value="Arial" selected="selected">Arial</option>
+                                <option value="Courier New">Courier New</option>
+                                <option value="Tahoma">Tahoma</option>
+                                <option value="Palatino Linotype">Palatino Linotype</option>
+                                <option value="Georgia">Georgia</option>
+                                <option value="Verdana">Verdana</option>
+                                <option value="Times New Roman">Times New Roman</option>
+                                <option value="Source Sans Pro">Source Sans Pro</option>
+                            </select>
+                        </div>
+                        <div class="theme_flex-set">
+                            <label class="theme-set">Cỡ chữ</label>
+                            <select data-x-bind="onChangeConfig('font-size')" id="font-style">
+                                
+                                <option  value="14px">14px</option>
+                                <option  value="15px">15px</option>
+                                <option  value="16px">16px</option>
+                                <option  value="17px">17px</option>
+                                <option  value="18px">18px</option>
+                                <option  value="19px">19px</option>
+                                <option  value="20px">20px</option>
+                                <option  value="21px">21px</option>
+                                <option  value="22px">22px</option>
+                                <option  value="23px">23px</option>
+                                <option  selected="selected" value="24px">24px</option>
+                                <option  value="25px">25px</option>
+                                <option  value="26px">26px</option>
+                                <option  value="27px">27px</option>
+                                <option  value="28px">28px</option>
+                                <option  value="29px">29px</option>
+                                <option  value="30px">30px</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="them-default">
+                    <center><button type="button" class="theme-default-btn" style="border: none;background-color: bisque;border-radius: 8px;width: 9em;height: 3em;">
+                        <span style="font-size: large;font-weight: 600;">Mặc định</span>
+                    </button></center>
+                </div>
+            </div>
+    </div> 
+
+
+
+
+
+
+{{!-- <script>
+    document.addEventListener("DOMContentLoaded", function(){
+    var chapID;
+    const blinkloadprevchap = document.querySelectorAll('#navprevtop');
+    const blinkloadnextchap = document.querySelectorAll('#navnexttop');
     
-    blinkloadprevchap.addEventListener('click', function(e){
-        a = parseInt(this.getAttribute('data-id'))
-        chapID = a -1
-        if ( chapID < 1 ) {
-            this.href='/truyen/{{book.slug}}'
-        } else{
-        this.href = '/truyen/{{book.slug}}/chuong-'+chapID.toString() }
-    })
-    blinkloadnextchap.addEventListener('click', function(e){
-        a = parseInt(this.getAttribute('data-id'))
-        chapID = a + 1
-         this.href = '/truyen/{{book.slug}}/chuong-'+chapID.toString() 
-        //if (chapID > new a){
-          //  this.href='/truyen/{{book.slug}}'
-        //} else{
-        //this.href = '/truyen/{{book.slug}}/Chuong-'+chapID.toString() }
-    })
-})
+    blinkloadprevchap.forEach(function(element) {
+        element.addEventListener('click', function(e) {
+            e.preventDefault();
+            var a = parseInt(this.getAttribute('data-id'));
+            chapID = a - 1;
+            if (chapID < 1) {
+                this.href = '/truyen/{{book.slug}}';
+            } else {
+                this.href = '/truyen/{{book.slug}}/chuong-' + chapID.toString();
+            }
+            window.location.href = this.href; 
+        });
+    });
 
-</script>
+    blinkloadnextchap.forEach(function(element) {
+        element.addEventListener('click', function(e) {
+            e.preventDefault(); 
+            var a = parseInt(this.getAttribute('data-id'));
+            chapID = a + 1;
+            this.href = '/truyen/{{book.slug}}/chuong-' + chapID.toString();
+            window.location.href = this.href; 
+        });
+    });
+});
 
 
+</script> --}}
+<script src="/js/detail.js"></script>
 
-
+<script src="/js/readsss.js"></script>
 
 
 
 
 <style>
+    
+.tong_aaa{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 1;
+}
+
+/* modal */
+ /* form */
+.set_up_aaaaaaaaa{
+    max-width: 450px;
+    width: auto;
+    height: auto;
+    max-height: 450px;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    animation: fadeIn linear .1s ;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 3;
+}
+
+.dep-trai {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    margin-right: 20px;
+}
+
+.img_heading {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: contain;
+}
+
+.auth-form_heading {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.close_aaa {
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-size: 1.25rem;
+    color: #333;
+} 
+
+    .theme_flex-set{
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0;
+}
+.theme-set{
+    font-size: 20px;
+    font-weight: 500;
+}
+ #font-family,
+ #font-style{
+    width: 200px;
+    height: 40px;
+    border-radius: 0.9em;
+ }
+.them-default{
+    margin: 3em 0;
+}
     .content_name{
     margin: 1em 0;
 }
@@ -89,10 +274,12 @@
     flex-direction: row;
     flex-wrap: nowrap;
     justify-content: space-between;
-    margin: 3px 210px;
+    margin: 3px auto;
+    max-width: 1200px;
 }
 .contentbox{
-    margin: 3px 210px;
+    margin: 0 auto;
+    max-width: 1200px;
 }
 /* comment */
 .comment {
@@ -113,7 +300,7 @@
     background-color: #fff;
     background-clip: padding-box;
     border: 1px solid #ced4da;
-    width: calc(100% - 50px);
+    max-width: 90% ;
     transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
     margin-left: -12px;
 }
@@ -123,94 +310,7 @@
 .btn-info{
     background-color: #2C7ABE;
     color: #ffffff;
+    margin-left: 0;
 }
- /* modal */
- .modal{
-    position: fixed;
-    top:0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: 1;
-    animation: fadeIn linear .1s;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.modal_overlay{
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.4);
-    z-index: 2;
-}
-.modal_body{
-    width: 450px;
-    height: 420px;
-    background-color: rgb(195, 241, 236);
-    position: relative;
-    z-index: 3;
-    border-radius: 5px;
-    animation: growth linear .1s;
-}
-/* modal */
- /* form */
-.auth-form {
-    max-width: 450px;
-    height: 420px;
-    margin: 0 auto;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    background-color: #fff;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-.auth-form_header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 20px;
-    margin-right: 20px;
-}
-
-.img_heading {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    object-fit: contain;
-}
-
-.auth-form_heading {
-    font-size: 1.5rem;
-    font-weight: bold;
-}
-
-.auth-form_close {
-    border: none;
-    background: none;
-    cursor: pointer;
-    font-size: 1.25rem;
-    color: #333;
-} 
-
-/*  */
-.theme_flex-set{
-    display: flex;
-    justify-content: space-between;
-    margin: 20px 0;
-}
-.theme-set{
-    font-size: 20px;
-    font-weight: 500;
-}
- #font-family,
- #font-style{
-    width: 200px;
-    height: 40px;
-    border-radius: 0.9em;
- }
-.them-default{
-    margin: 3em 0;
-}
-
+ 
 </style>

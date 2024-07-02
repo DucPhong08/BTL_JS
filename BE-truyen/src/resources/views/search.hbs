@@ -1,0 +1,141 @@
+<title>
+    Trang Tìm Kiếm
+</title>
+<section class="category" id="moi-cap-nhat">
+        <div class="fake-symbol text-center" style="background-color: #FF2853;"><i class="fa-solid fa-magnifying-glass"></i></div><span class="cat-header">Kết quả tìm kiếm</span>
+        <div class="thumbnail-container">
+            {{#each a}}
+            <div class="thumbnail">
+                <a href="truyen/{{this.slug}}"><img src="{{this.img}}" alt="{{this.name}}" style="width: 12em;height: 15em; border-radius: 5px;object-fit: cover;"></a>
+                <div class="thumbnail-text">
+                    <a href="truyen/{{this.slug}}" style="display: block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap"><h3 style="display: inline; margin: 0;">{{this.name}}</h3></a>
+                    <a href="#"><p>{{this.author}}</p></a>
+                </div>
+                <div class="tag upload-time">
+                    <p>{{time this.updatedAt}}</p>
+                </div>
+            </div>
+            {{else}}
+                <div class="alert alert-info text-center my-4" role="alert" style="width: 100%;">
+                Truyện Không Tồn Tại Trong WEb
+                </div>
+            {{/each}}
+        </div>
+        <nav aria-label="Page navigation example" class="pagination justify-content-center">
+            <ul class="pagination">
+                {{#if hasPreviousPage}}
+                    <li class="page-item">
+                        <a class="page-link" href="?page={{previousPage}}" aria-label="Previous">
+                            <span aria-hidden="true">&laquo;</span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                    </li>
+                {{/if}}
+
+                {{#each (range 1 totalPages)}}
+                    <li class="page-item {{#if (eq this ../currentPage)}}active{{/if}}">
+                        <a class="page-link" href="?page={{this}}">{{this}}</a>
+                    </li>
+                {{/each}}
+
+                {{#if hasNextPage}}
+                    <li class="page-item">
+                        <a class="page-link" href="?page={{nextPage}}" aria-label="Next">
+                            <span aria-hidden="true">&raquo;</span>
+                            <span class="sr-only">Next</span>
+                        </a>
+                    </li>
+                {{/if}}
+            </ul>
+        </nav>
+
+</section>
+
+<style>
+    section{
+    max-width: 80em;
+    margin: auto 6em;
+    padding: 2em 0;
+}
+
+    .fake-symbol{
+        width: 2em;
+        height: 2em;
+        margin-right: 1em;
+        display: inline-block;
+}
+    .cat-header{
+        font-size: 2em;
+    }
+    #moi-cap-nhat .cat-header{
+        color: #FF2853;
+    }
+    #yeu-thich .cat-header{
+        color: #D580E0;
+    }
+    #truyen-full .cat-header{
+        color: #56CCFA;
+    }
+
+    .thumbnail-container{
+        display: flex;
+        flex-wrap: wrap;
+    }
+        .thumbnail{
+            width: 12em;
+            margin-top: 3em;
+            margin-right: 1em;
+
+            position: relative;
+        }
+            
+            .thumbnail-text{
+                margin-top: 1em;
+                text-align: center;
+                text-transform: capitalize;
+            }
+                .thumbnail-text h3{
+                    font-size: 1.2em;
+                    font-weight: normal;
+                    text-align: center;
+                }
+                .thumbnail-text p{
+                    margin-top: 0.5em;
+                }
+                .thumbnail-text a:hover{
+                    color: #F18121;
+                }
+           .tag{
+                padding: 0 0.5em;
+                background-color: #56CCFA;
+                width: max-content;
+                border-radius: 4px;
+                color: white;
+                height: 25px;
+            }
+            .upload-time{
+                position: absolute;
+                top: 4px;
+                left: 3px;
+            }
+            .click-for-more{
+                margin-top: 3em;
+            }
+            .click-for-more a{
+                display: block;
+                width: max-content;
+                margin: auto;
+            
+                background-color: #F18121;
+                color: white;
+                padding: 1em 2em;
+                border-radius: 0.5em;
+                font-weight: bold;
+                font-size: 1.2em;
+                box-shadow: 0 -5px 10px -10px black;
+            
+            }
+            .click-for-more a:hover{
+                background-color: #EEB686;
+            }
+</style>

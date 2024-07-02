@@ -1,0 +1,58 @@
+*{
+    box-sizing: inherit;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 100%;
+    line-height: 1.6rem;
+    font-family: 'Roboto',sans-serif;
+    box-sizing: border-box;
+}
+
+:root{
+    --primary-color:rgba(209, 60, 60, 0.848);
+    --white--color : rgb(159, 150, 150);
+    --black--color : black;
+    --text--color:#333;
+    --growth-form:0.7;
+    --growth-to:1;
+}
+body{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #EBEBEB;
+}
+a{
+    text-decoration: none;
+    color: black;
+}
+li{
+    list-style: none;
+}
+header, footer{
+    background-color: rgb(247, 244, 244);
+}
+button{
+    border: none;
+    cursor: pointer;
+}
+/* animation */
+@keyframes fadeIn { 
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+@keyframes growth { 
+    from {
+        transform: scale(var(--growth-form));    
+    }
+    to {
+        transform: scale(var(--growth-to));    
+
+    }
+}
+/* res */

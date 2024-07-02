@@ -2,7 +2,7 @@
 
 <div class="container shadow p-2 bg-light">
 		<div class="breadcum p-1">
-			<a href='/'>Trang Chủ</a>/ <a href="/me/stored/book">Truyện của tôi đăng</a></div>
+			<a href='/'>Trang Chủ</a>/ <a href="/me/stored/{{user._id}}/book">Truyện của tôi đăng</a></div>
 		<br>
 		<div class="main ml-1" id="formaddbook">
 			<form id="formtmp" method="POST" action="dang-truyen/list">
@@ -34,6 +34,7 @@
 			    <label for="ip-description">Giới thiệu</label>
 			    <textarea style="min-height: 400px" class="form-control" id="ip-description" placeholder="Giới thiệu tóm tắt" name="description"></textarea>
 			  </div>
+			  
 			  <div class="text-center"><button type="submit" class="btn btn-primary" >Tạo truyện</button></div>
 			  
 			</form>

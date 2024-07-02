@@ -1,31 +1,61 @@
-const {mongooseToObject} = require('../../util/mongo');
 const {multiple} = require('../../util/mongo');
-const detailbooks = require('../model/detailbook');
 const blogbooks = require('../model/blogbook');
+const DetailBook = require('../model/detailbook');
+const User = require('../model/login');
+const {mongooseToObject} = require('../../util/mongo');
+
 
 
 class MesController{
-    storedBook(req, res, next){
-        Promise.all([blogbooks.find({}), blogbooks.countDocumentsDeleted()])
-            .then(([book , deletedCount]) =>{
-
-                res.render('me/stored-book',{
-                    showHeaderFooter:false,
-                    book : multiple(book),
-                    deletedCount,
-                })
-            })
-            .catch(next)
-        
+    async storedBooks(req, res, next) {
+        try {
+            const user = await User.findById(req.params.userId);
+    
+            if (!user) {
+                throw new Error('Không tìm thấy thông tin user');
+            }
+    
+            const storedBooks = await DetailBook.find({ slug: { $in: user.addbook } });
+    
+            const [ deletedCount] = await Promise.all([
+                blogbooks.countDocumentsDeleted() // Đếm số lượng sách đã xóa
+            ]);
+    
+            res.render('me/stored-book', {
+                storedBooks :multiple(storedBooks) ,
+                deletedCount,
+                showHeaderFooter: false
+            });
+        } catch (error) {
+            throw new Error('Không tìm thấy thông tin user');
+        }
     }
+    
     // trash
-    trashBook(req, res, next){
-        blogbooks.findDeleted({})
-        .then(book => res.render('me/trash-book',{
-            showHeaderFooter:false,
-            book : multiple(book),
-        }))
-        .catch(next)
+    
+    async trashBook(req, res, next) {
+        try {
+            // Tìm người dùng bằng ID
+            const user = await User.findById(req.userId);
+    
+            // Nếu không tìm thấy người dùng, trả về lỗi 404
+            if (!user) {
+                throw new Error('Không tìm thấy thông tin user');
+            }
+    
+            // Tìm các sách đã xóa
+            const deletedBooks = await blogbooks.findDeleted({});
+            
+            // Render trang với dữ liệu
+            res.render('me/trash-book', {
+                showHeaderFooter: false,
+                book: multiple(deletedBooks),
+                user :mongooseToObject(user)
+            });
+        } catch (error) {
+            // Chuyển tiếp lỗi tới middleware tiếp theo
+            next(error);
+        }
     }
     
 };

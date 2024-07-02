@@ -2,6 +2,8 @@ const detailbook = require('../model/detailbook');
 const {mongooseToObject} = require('../../util/mongo');
 const {multiple} = require('../../util/mongo');
 const readbook = require('../model/readbook');
+const blogbooks = require('../model/blogbook');
+
 
 
 
@@ -33,16 +35,55 @@ class AddsController{
 
         .catch(next);
     };
-    add(req, res, next){
-        const a = req.params.slug;
-        const readbooks = readbook(a);
-        const formData = req.body;
-        const adds = new readbooks(formData);
-
-        adds.save()
-            .then(() => res.redirect('back'))
-            .catch(next)
+    async add(req, res, next) {
+        try {
+            
+            const slug = req.params.slug;
+            const readbooks = readbook(slug)
+            const formData = req.body;
+    
+            const existingChapter = await readbooks.findOne({ $or: [{ chapter: formData.chapter }, { Chap: formData.Chap }] });
+    
+            if (existingChapter) {
+                return res.status(400).json({ type: 'error', message: 'Chương truyện đã tồn tại', a: 'Vui lòng quay lại trang trước' });
+            }
+    
+                const newChapter = new readbooks(formData);
+                await newChapter.save();
+        
+                const count = await readbooks.countDocuments();
+        
+                await blogbooks.findOneAndUpdate(
+                    { slug: slug },
+                    { 
+                        $set: { 
+                            Chapter: count, 
+                            updatedAt: new Date() 
+                        } 
+                    }
+                );
+        
+                await detailbook.findOneAndUpdate(
+                    { slug: slug },
+                    { 
+                        $set: { 
+                            Chapter : count ,
+                            updateat : new Date,
+                            latestChapter: formData.Chap, 
+                            latestChapterTime: newChapter.createdAt, 
+                        } 
+                    }
+                );
+        
+                
+                res.redirect('back');
+            } catch (error) {
+                console.error('Lỗi khi thêm chương mới:', error);
+                next(error);
+            }
     }
+    
+    
     edit(req, res, next){
         const a = req.params.slug;
         const readbooks = readbook(a);
@@ -78,7 +119,17 @@ class AddsController{
         
         readbooks.deleteOne({ slug: id })
             .then(() => {
-                res.redirect('back');
+                readbooks.countDocuments()
+                    .then(count => {
+                        return blogbooks.findOneAndUpdate(
+                            { slug: a },
+                            { $set: { Chapter: count, updatedAt: new Date() } }
+                        );
+                    })
+                    .then(() => {
+                        res.redirect('back');
+                    })
+                    .catch(next);
             })
             .catch(next); 
     }

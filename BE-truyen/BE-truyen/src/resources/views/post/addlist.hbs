@@ -1,0 +1,34 @@
+<title>Thêm Chương Truyện</title>
+<div class="container shadow p-2 bg-light">
+		<div class="breadcum p-1">
+			<a href='/book/{{book.slug}}/list'>Danh sách</a> / Thêm chương truyện</div>
+		
+		<div class="main" id="formaddchap">
+			<form id="formtmp" method="POST" action="/book/{{book.slug}}/addlistbook">
+			  <div class="form-group">
+			    <label for="ip-num">Số chương</label>
+			    <input onchange="validatecnum(this.value)" type="text" class="form-control" name="chapter" placeholder="Mã số chương" value="Chương ">
+			    <small id="duplicatenotify" style="display: none;" class="form-text text-muted">Mã số chương này đã tồn tại.</small>
+			  </div>
+			  
+			  
+			  <div class="form-group">
+			    <label for="ip-name">Tên chương</label>
+			    <input type="text" class="form-control" name="Chap" placeholder="Tên chương" value="Chương ">
+			    <small class="form-text text-muted">Tự động nhận diện khi sửa nội dung.</small>
+			  </div>
+			  <div class="form-group">
+			    <label for="ip-content">Nội dung chương</label>
+			    <textarea onchange="contentChange(this.value)" style="min-height: 400px" class="form-control" name="content" placeholder="Nội dung chương"></textarea>
+			  </div>
+			  <div class="text-center"><button type="submit" class="btn btn-primary">Đăng tải</button></div>
+			  
+			</form>
+		</div>
+		<div style="padding: 10px;">
+			Ghi chú: <br>
+			- Số chương phải tuân theo "Chương x".<br>
+			- Nội dung chương
+		</div>
+	</div>
+	

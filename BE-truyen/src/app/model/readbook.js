@@ -8,6 +8,10 @@ const readbook = new Schema({
     content: {type:'String' , minLength: 1},
     Chap : {type:'String', minLength:1},
     slug : {type:'String',slug :'chapter'} ,
+    storyId: { type: mongoose.Schema.Types.ObjectId, ref: 'detailbooks' }, 
+    views: { type: Number, default: 0 },
+    viewedBy: [{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }],
+    viewedByIP: [String], 
   },
   {
     timestamps: true,

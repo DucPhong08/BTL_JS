@@ -3,7 +3,7 @@
     <h2>
         <a href="/">Trang Chủ</a> / Thùng rác
     </h2>
-    <a href="/me/stored/book" class="btn-link ">Truyện Của Tôi Đăng</a>
+    <a href="/me/stored/{{user._id}}/book" class="btn-link ">Truyện Của Tôi Đăng</a>
     <table class="table">
     <thead>
         <tr>
@@ -20,7 +20,7 @@
             <th scope="row">{{sum @index 1}}</th>
             <td>{{this.name}}</td>
             <td>{{this.Chapter}}</td>
-            <td>{{this.deletedAt}}</td>
+            <td>{{time this.deletedAt}}</td>
             <td>
                 <a href="" class="btn btn-link btn-restore" data-id ="{{this.slug}}">Khôi Phục</a>
                 <a href="" class="btn btn-link" data-toggle="modal" data-id ="{{this.slug}}" data-target="#delete-book-modal">Xoá Vĩnh Viễn</a>
@@ -79,7 +79,8 @@
         })
         
         btndelete.onclick = function(){
-            deleteForm.action = '/book/' + bookID + '/force?_method=DELETE'
+            deleteForm.action = '/book/' + bookID + '/force';
+
             deleteForm.submit();
         }
         restoreBtn.on('click', function(e){

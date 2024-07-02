@@ -1,0 +1,158 @@
+<form onsubmit="updatePersonal(event)" style="min-height: 460px; display: block; margin-top: 2em;">
+    <center><img src="https://png.pngtree.com/png-clipart/20210608/ourlarge/pngtree-dark-gray-simple-avatar-png-image_3418404.jpg" alt="Avatar" style="border-radius: 50%; width: 10%; height: 10%;"></center>
+
+    <div class="profile-item">
+        <label class="profile-label">Tên tài khoản:</label>
+        <input id="username" class="form-auto" type="text" value="{{user.username}}" readonly style="user-select: none;">
+    </div>
+    <div class="profile-item" hidden>
+        <label class="profile-label">ID người dùng:</label>
+        <input id="userid" class="form-auto" type="text" value="{{user._id}}" readonly style="user-select: none;">
+    </div>
+    <div class="profile-item">
+        <label class="profile-label">Tên:</label>
+        <input id="namedayne" class="form-auto" type="text" name="name" value="{{user.name}}" required>
+    </div>
+    <div class="profile-item">
+        <label class="profile-label">Năm sinh:</label>
+        <input id="birthday" class="form-auto" type="text" name="birthday" value="{{user.birthday}}">
+            <small style="margin-left: 6px;">Nhập đúng định dạng .VD:08/12/2003</small>
+    </div>
+    <div class="profile-item">
+        <label class="profile-label">Giới tính:</label>
+        <select id="gender" class="form-auto" name="gender">
+            <option value="0" {{#if (eq user.gender 0)}}selected{{/if}}>Bí mật</option>
+            <option value="1" {{#if (eq user.gender 1)}}selected{{/if}}>Nam</option>
+            <option value="2" {{#if (eq user.gender 2)}}selected{{/if}}>Nữ</option>
+        </select>
+    </div>
+    <center><button class="submit-btn" type="submit">Cập nhật</button></center>
+</form>
+
+
+<script>
+    async function updatePersonal(event) {
+        event.preventDefault(); // Ngăn chặn hành vi mặc định của form
+
+        const userId = document.getElementById('userid').value; // Lấy id của người dùng từ một trường ẩn trong form
+        const names = document.getElementById('namedayne').value;
+        const birthday = document.getElementById('birthday').value;
+        const gender = document.getElementById('gender').value;
+        const token = localStorage.getItem('token');
+    try {
+        const response = await fetch(`/updatepersonal/${userId}`, {
+            method: 'POST', 
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
+            },
+            body: JSON.stringify({ names, birthday, gender })
+        });
+
+        if (!response.ok) {
+            throw new Error('Đã xảy ra lỗi khi cập nhật thông tin người dùng');
+        }
+
+        const data = await response.json();
+        showToast({
+            title: data.type === 'success' ? 'Thành công!' : 'Thất bại!',
+            message: data.message,
+            type: data.type,
+            duration: 3000
+        });
+
+        if (data.type === 'success') {
+            // window.location.href = '/profile';
+        }
+    } catch (error) {
+        console.error('Error:', error);
+        showToast({
+            title: 'Lỗi',
+            message: 'Đã xảy ra lỗi máy chủ',
+            type: 'error',
+            duration: 3000
+        });
+    }
+}
+function showToast({ title = "", message = "", type = "info", duration = 3000 }) {
+    const main = document.getElementById("toast");
+    if (main) {
+        const toast = document.createElement("div");
+
+        // Auto remove toast
+        const autoRemoveId = setTimeout(function () {
+            main.removeChild(toast);
+        }, duration + 1000);
+
+        // Remove toast when clicked
+        toast.onclick = function (e) {
+            if (e.target.closest(".toast__close")) {
+                main.removeChild(toast);
+                clearTimeout(autoRemoveId);
+            }
+        };
+
+        const icons = {
+            success: "fas fa-check-circle",
+            info: "fas fa-info-circle",
+            warning: "fas fa-exclamation-circle",
+            error: "fas fa-exclamation-circle"
+        };
+        const icon = icons[type];
+        const delay = (duration / 1000).toFixed(2);
+
+        toast.classList.add("toast", `toast--${type}`);
+        toast.style.animation = `slideInLeft ease .3s, fadeOut linear 1s ${delay}s forwards`;
+
+        toast.innerHTML = `
+            <div class="toast__icon">
+                <i class="${icon}"></i>
+            </div>
+            <div class="toast__body">
+                <h3 class="toast__title">${title}</h3>
+                <p class="toast__msg">${message}</p>
+            </div>
+            <div class="toast__close">
+                <i class="fas fa-times"></i>
+            </div>
+        `;
+        main.appendChild(toast);
+    }
+}
+
+
+</script>
+
+
+
+<style>
+    .profile-item {
+            margin: 10px 300px 0;
+        }
+        .profile-label {
+            font-weight: bold;
+        }
+        .form-auto {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        
+        .submit-btn {
+            display: block;
+            width: 50%;
+            padding: 10px;
+             margin: 20px 0 30px 0 ;
+
+            background-color: #56CCFA;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .submit-btn:disabled {
+            background-color: #ccc;
+        }
+</style>
